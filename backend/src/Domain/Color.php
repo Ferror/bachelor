@@ -17,8 +17,20 @@ final class Color implements JsonSerializable
     {
     }
 
+    public function equals(self $color): bool
+    {
+        return $this->red === $color->red
+            && $this->green === $color->green
+            && $this->blue === $color->blue;
+    }
+
     public function mix(self $color): self
     {
+        // Mix of two same colors is the same color
+        if ($this->equals($color)) {
+            return $this;
+        }
+
         $first = self::convertToRyb($this);
         $second = self::convertToRyb($color);
 
@@ -40,7 +52,7 @@ final class Color implements JsonSerializable
 
         $i_w = min($R_rgb, $G_rgb, $B_rgb);
 
-        //Remove whiteness component
+        //Remove white component
         $r_rgb = $R_rgb - $i_w;
         $g_rgb = $G_rgb - $i_w;
         $b_rgb = $B_rgb - $i_w;

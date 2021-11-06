@@ -10,21 +10,51 @@ use PHPUnit\Framework\TestCase;
 final class ColorTest extends TestCase
 {
     /**
-     * Blue + Yellow = Green
+     * @dataProvider mixes
      */
-    public function testItIsGreen(): void
+    public function testItIsMixesColors(Color $first, Color $second, Color $result): void
     {
-        $color = new Color(0.0, 0.0, 1.0);
-        $result = $color->mix(new Color(1.0, 1.0, 0.0));
+        self::assertEquals($first->mix($second)->jsonSerialize(), $result->jsonSerialize());
+    }
 
-        self::assertEquals(
-            [
-                'r' => 0.0,
-                'g' => 1.0,
-                'b' => 0.0,
-            ],
-            $result->jsonSerialize(),
-        );
+    public function mixes(): Generator
+    {
+        //Black + Black = Black
+        yield [
+            new Color(0.0, 0.0, 0.0),
+            new Color(0.0, 0.0, 0.0),
+            new Color(0.0, 0.0, 0.0),
+        ];
+        //White + White = White
+        yield [
+            new Color(0.0, 0.0, 0.0),
+            new Color(0.0, 0.0, 0.0),
+            new Color(0.0, 0.0, 0.0),
+        ];
+        //Blue + Blue = Blue
+        yield [
+            new Color(0.0, 0.0, 1.0),
+            new Color(0.0, 0.0, 1.0),
+            new Color(0.0, 0.0, 1.0),
+        ];
+        //Blue + Yellow = Green
+        yield [
+            new Color(0.0, 0.0, 1.0),
+            new Color(1.0, 1.0, 0.0),
+            new Color(0.0, 1.0, 0.0),
+        ];
+        //Red + Yellow = Orange
+        yield [
+            new Color(1.0, 0.0, 0.0),
+            new Color(1.0, 1.0, 0.0),
+            new Color(1.0, 0.5, 0.0),
+        ];
+        //Red + Blue = Purple
+        yield [
+            new Color(1.0, 0.0, 0.0),
+            new Color(0.0, 0.0, 1.0),
+            new Color(0.5, 0.0, 1.0),
+        ];
     }
 
     /**
