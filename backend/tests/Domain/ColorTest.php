@@ -8,23 +8,23 @@ use PHPUnit\Framework\TestCase;
 
 final class ColorTest extends TestCase
 {
-//    /**
-//     * Blue + Yellow = Green
-//     */
-//    public function testItIsGreen(): void
-//    {
-//        $color = new Color(0.0, 0.0, 1.0);
-//        $color->mix(new Color(1.0, 1.0, 0.0));
-//
-//        self::assertEquals(
-//            [
-//                'r' => 0.0,
-//                'g' => 1.0,
-//                'b' => 0.0,
-//            ],
-//            $color->jsonSerialize(),
-//        );
-//    }
+    /**
+     * Blue + Yellow = Green
+     */
+    public function testItIsGreen(): void
+    {
+        $color = new Color(0.0, 0.0, 1.0);
+        $result = $color->mix(new Color(1.0, 1.0, 0.0));
+
+        self::assertEquals(
+            [
+                'r' => 0.0,
+                'g' => 1.0,
+                'b' => 0.0,
+            ],
+            $result->jsonSerialize(),
+        );
+    }
 
     /**
      * @dataProvider colors
