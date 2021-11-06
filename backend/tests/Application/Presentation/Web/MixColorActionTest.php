@@ -13,7 +13,24 @@ final class MixColorActionTest extends WebTestCase
         $client = self::createClient();
         $client->request(
             method: Request::METHOD_GET,
-            uri: '/colors'
+            uri: '/colors',
+            server: [
+                'HTTP_CONTENT_TYPE' => 'application/json',
+            ],
+            content: json_encode([
+                'colors' => [
+                    [
+                        'r' => 0,
+                        'g' => 0,
+                        'b' => 255,
+                    ],
+                    [
+                        'r' => 255,
+                        'g' => 255,
+                        'b' => 0,
+                    ],
+                ],
+            ], JSON_THROW_ON_ERROR),
         );
 
         self::assertResponseIsSuccessful();
