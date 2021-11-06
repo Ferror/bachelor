@@ -34,14 +34,13 @@ final class Color implements JsonSerializable
         $first = self::convertToRyb($this);
         $second = self::convertToRyb($color);
 
-        //MIX COLOR
-        $new = new Color(
-            ($first->red + $second->red),
-            ($first->green + $second->green),
-            ($first->blue + $second->blue),
+        return self::convertToRgbV2(
+            new Color(
+                ($first->red + $second->red),
+                ($first->green + $second->green),
+                ($first->blue + $second->blue),
+            )
         );
-
-        return self::convertToRgbV2($new);
     }
 
     public static function convertToRyb(Color $color): Color
