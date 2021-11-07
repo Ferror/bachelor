@@ -12,9 +12,9 @@ final class ColorTest extends TestCase
     /**
      * @dataProvider mixes
      */
-    public function testItIsMixesColors(ColorV1 $first, ColorV1 $second, ColorV1 $result): void
+    public function testItIsMixesColors(ColorV1 $first, ColorV1 $second, ColorV1 $result, string $message): void
     {
-        self::assertEquals($first->mix($second)->jsonSerialize(), $result->jsonSerialize());
+        self::assertEquals($result->jsonSerialize(), $first->mix($second)->jsonSerialize(), $message);
     }
 
     public function mixes(): Generator
@@ -24,37 +24,74 @@ final class ColorTest extends TestCase
             new ColorV1(0.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 0.0),
+            'Black + Black = Black',
         ];
         //White + White = White
         yield [
             new ColorV1(0.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 0.0),
+            'White + White = White',
         ];
         //Blue + Blue = Blue
         yield [
             new ColorV1(0.0, 0.0, 1.0),
             new ColorV1(0.0, 0.0, 1.0),
             new ColorV1(0.0, 0.0, 1.0),
+            'Blue + Blue = Blue',
         ];
         //Blue + Yellow = Green
         yield [
             new ColorV1(0.0, 0.0, 1.0),
             new ColorV1(1.0, 1.0, 0.0),
             new ColorV1(0.0, 1.0, 0.0),
+            'Blue + Yellow = Green',
         ];
         //Red + Yellow = Orange
         yield [
             new ColorV1(1.0, 0.0, 0.0),
             new ColorV1(1.0, 1.0, 0.0),
             new ColorV1(1.0, 0.5, 0.0),
+            'Red + Yellow = Orange',
         ];
         //Red + Blue = Purple
         yield [
             new ColorV1(1.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 1.0),
             new ColorV1(0.5, 0.0, 1.0),
+            'Red + Blue = Purple',
         ];
+
+//        //Grey + Dark Grey = Grey
+//        yield [
+//            new ColorV1(0.6, 0.6, 0.6),
+//            new ColorV1(0.3, 0.3, 0.3),
+//            new ColorV1(0.45, 0.45, 0.45),
+//        ];
+//        //White + Black = Grey
+//        yield [
+//            new ColorV1(1.0, 1.0, 1.0),
+//            new ColorV1(0.0, 0.0, 0.0),
+//            new ColorV1(0.5, 0.5, 0.5),
+//        ];
+//        //White + Red = Light Red aka Pink
+//        yield [
+//            new ColorV1(1.0, 0.0, 0.0),
+//            new ColorV1(1.0, 1.0, 1.0),
+//            new ColorV1(1.0, 0.5, 0.5),
+//        ];
+//        //White + Blue = Light Blue
+//        yield [
+//            new ColorV1(0.0, 0.0, 1.0),
+//            new ColorV1(1.0, 1.0, 1.0),
+//            new ColorV1(0.5, 0.5, 1.0),
+//        ];
+//        //White + Green = Light Green
+//        yield [
+//            new ColorV1(0.0, 0.0, 1.0),
+//            new ColorV1(1.0, 1.0, 1.0),
+//            new ColorV1(0.5, 0.5, 1.0),
+//        ];
     }
 
     /**

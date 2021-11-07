@@ -33,6 +33,5 @@ final class MixPaintColorActionTest extends WebTestCase
             ], JSON_THROW_ON_ERROR),
         );
         self::assertResponseIsSuccessful();
-        var_dump($client->getResponse()->getContent());
     }
 }

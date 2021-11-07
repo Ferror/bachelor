@@ -24,6 +24,13 @@ final class ColorV1 implements JsonSerializable
             && $this->blue === $color->blue;
     }
 
+    public function isLightening(self $color): bool
+    {
+        //RGB white is 255, 255, 255
+
+//        if ()
+    }
+
     public function mix(self $color): self
     {
         // Mix of two same colors is the same color
@@ -34,13 +41,25 @@ final class ColorV1 implements JsonSerializable
         $first = self::convertToRyb($this);
         $second = self::convertToRyb($color);
 
-        return self::convertToRgbV2(
-            new self(
-                ($first->red + $second->red),
-                ($first->green + $second->green),
-                ($first->blue + $second->blue),
-            )
+        dump($first);
+        dump($second);
+
+        //try normalization
+        $r = $first->red + $second->red;
+        $g = $first->green + $second->green;
+        $b = $first->blue + $second->blue;
+
+        $n = max($r, $g, $b);
+
+        $mix = new self(
+            $r / $n,
+            $g / $n,
+            $b / $n,
         );
+
+        dump($mix);
+
+        return self::convertToRgbV2($mix);
     }
 
     public static function convertToRyb(ColorV1 $color): self
