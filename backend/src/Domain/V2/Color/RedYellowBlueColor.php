@@ -5,10 +5,8 @@ namespace App\Domain\V2\Color;
 
 use App\Domain\V2\Converter;
 use App\Domain\V2\Mixable;
-use App\Domain\V2\Printable;
-use JsonSerializable;
 
-final class RedYellowBlueColor implements Mixable, JsonSerializable
+final class RedYellowBlueColor implements Mixable
 {
     public function __construct(
         private float $red,
@@ -16,6 +14,9 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
         private float $blue,
     )
     {
+        if (!Validator::isWithinRange($red, $yellow, $blue)) {
+            throw new \InvalidArgumentException();
+        }
     }
 
     public function mix(Mixable $mixable, float $ratio): Mixable
@@ -31,17 +32,8 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
         );
     }
 
-    public function createPrintable(): Printable
+    public function createPrintable(): RedGreenBlueColor
     {
         return Converter::toRedGreenBlue($this->red, $this->yellow, $this->blue);
-    }
-
-    public function jsonSerialize(): array
-    {
-        return [
-            'r' => $this->red,
-            'y' => $this->yellow,
-            'b' => $this->blue,
-        ];
     }
 }

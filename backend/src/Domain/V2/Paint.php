@@ -3,9 +3,7 @@ declare(strict_types=1);
 
 namespace App\Domain\V2;
 
-use JsonSerializable;
-
-final class Paint implements JsonSerializable
+final class Paint
 {
     public function __construct(
         private Mixable $color,
@@ -21,19 +19,19 @@ final class Paint implements JsonSerializable
      */
     public function mix(self $paint): self
     {
-        dump($this->volume->createRatio($paint->volume));
-
         return new self(
             $this->color->mix($paint->color, $this->volume->createRatio($paint->volume)),
             $this->volume->add($paint->volume),
         );
     }
 
-    public function jsonSerialize(): array
+    public function getColor(): Mixable
     {
-        return [
-            'model' => $this->color->createPrintable()->jsonSerialize(),
-            'volume' => $this->volume->toFloat(),
-        ];
+        return $this->color;
+    }
+
+    public function getVolume(): Volume
+    {
+        return $this->volume;
     }
 }

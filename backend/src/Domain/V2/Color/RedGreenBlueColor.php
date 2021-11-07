@@ -5,9 +5,9 @@ namespace App\Domain\V2\Color;
 
 use App\Domain\V2\Converter;
 use App\Domain\V2\Mixable;
-use App\Domain\V2\Printable;
+use InvalidArgumentException;
 
-final class RedGreenBlueColor implements Printable
+final class RedGreenBlueColor
 {
     public function __construct(
         private float $red,
@@ -15,14 +15,9 @@ final class RedGreenBlueColor implements Printable
         private float $blue,
     )
     {
-        if (!$this->isInTheRange($red) || !$this->isInTheRange($green) || !$this->isInTheRange($blue)) {
-            throw new \InvalidArgumentException();
+        if (!Validator::isWithinRange($red, $green, $blue)) {
+            throw new InvalidArgumentException('RGB value out of the range');
         }
-    }
-
-    private function isInTheRange(float $number): bool
-    {
-        return $number <= 255.0 && $number >= 0.0;
     }
 
     public function createMixable(): Mixable
@@ -30,12 +25,18 @@ final class RedGreenBlueColor implements Printable
         return Converter::toRedYellowBlue($this->red, $this->green, $this->blue);
     }
 
-    public function jsonSerialize(): array
+    public function getRed(): float
     {
-        return [
-            'r' => $this->red,
-            'g' => $this->green,
-            'b' => $this->blue,
-        ];
+        return $this->red;
+    }
+
+    public function getGreen(): float
+    {
+        return $this->green;
+    }
+
+    public function getBlue(): float
+    {
+        return $this->blue;
     }
 }

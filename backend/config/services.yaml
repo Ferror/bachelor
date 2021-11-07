@@ -11,10 +11,17 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
 
-    App\Presentation\Web\:
-        resource: ../src/Presentation/Web/
+    App\Presentation\Web\Action\:
+        resource: ../src/Presentation/Web/Action/
         tags: [controller.service_arguments]
 
     App\Application\Argument\RequestBody: ~
     App\Framework\ArgumentResolver\RequestBodyResolver: ~
     App\Domain\V2\PaintFactory: ~
+
+    App\Environment:
+        arguments: ['%env(APP_ENV)%']
+
+    App\Framework\Subscriber\ExceptionSubscriber:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }

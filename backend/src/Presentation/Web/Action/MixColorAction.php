@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Presentation\Web;
+namespace App\Presentation\Web\Action;
 
 use App\Application\Argument\RequestBody;
 use App\Domain\ColorV1;
@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class MixColorAction extends AbstractController
 {
-    #[Route(path: "/colors", name: "COLORS_GET", methods: ['GET'])]
+    #[Route(path: '/colors', name: 'COLORS_GET', methods: ['GET'])]
     public function __invoke(RequestBody $body): Response
     {
         $memory = [];
