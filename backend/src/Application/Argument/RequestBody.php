@@ -17,6 +17,12 @@ final class RequestBody
      */
     public function getBody(): array
     {
-        return json_decode($this->body, true, 512, JSON_THROW_ON_ERROR);
+        $result = json_decode($this->body, true, 512, JSON_THROW_ON_ERROR);
+
+        if ($result === null) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $result;
     }
 }
