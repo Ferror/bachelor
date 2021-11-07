@@ -1,0 +1,9 @@
+jobs:
+    include:
+        -   language: php
+            php:
+                - '8.0'
+            script:
+                - cd backend
+                - composer install
+                - make ci
