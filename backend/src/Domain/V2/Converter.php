@@ -1,53 +1,18 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Domain;
+namespace App\Domain\V2;
 
-use JsonSerializable;
-use function max;
-use function min;
+use App\Domain\V2\Color\RedGreenBlueColor;
+use App\Domain\V2\Color\RedYellowBlueColor;
 
-final class Color implements JsonSerializable
+final class Converter
 {
-    public function __construct(
-        private float $red,
-        private float $green,
-        private float $blue,
-    )
+    public static function toRedYellowBlue(float $r, float $g, float $b): RedYellowBlueColor
     {
-    }
-
-    public function equals(self $color): bool
-    {
-        return $this->red === $color->red
-            && $this->green === $color->green
-            && $this->blue === $color->blue;
-    }
-
-    public function mix(self $color): self
-    {
-        // Mix of two same colors is the same color
-        if ($this->equals($color)) {
-            return $this;
-        }
-
-        $first = self::convertToRyb($this);
-        $second = self::convertToRyb($color);
-
-        return self::convertToRgbV2(
-            new Color(
-                ($first->red + $second->red),
-                ($first->green + $second->green),
-                ($first->blue + $second->blue),
-            )
-        );
-    }
-
-    public static function convertToRyb(Color $color): Color
-    {
-        $R_rgb = $color->red;
-        $G_rgb = $color->green;
-        $B_rgb = $color->blue;
+        $R_rgb = $r;
+        $G_rgb = $g;
+        $B_rgb = $b;
 
         $i_w = min($R_rgb, $G_rgb, $B_rgb);
 
@@ -80,14 +45,14 @@ final class Color implements JsonSerializable
         $y_ryb += $i_b;
         $b_ryb += $i_b;
 
-        return new self($r_ryb, $y_ryb, $b_ryb);
+        return new RedYellowBlueColor($r_ryb, $y_ryb, $b_ryb);
     }
 
-    public static function convertToRgbV2(Color $color): Color
+    public static function toRedGreenBlue(float $r, float $y, float $b): RedGreenBlueColor
     {
-        $R_ryb = $color->red;
-        $Y_ryb = $color->green;
-        $B_ryb = $color->blue;
+        $R_ryb = $r;
+        $Y_ryb = $y;
+        $B_ryb = $b;
 
         $i_b = min($R_ryb, $Y_ryb, $B_ryb);
 
@@ -120,15 +85,6 @@ final class Color implements JsonSerializable
         $g_rgb += $i_w;
         $b_rgb += $i_w;
 
-        return new Color($r_rgb, $g_rgb, $b_rgb);
-    }
-
-    public function jsonSerialize(): array
-    {
-        return [
-            'r' => $this->red,
-            'g' => $this->green,
-            'b' => $this->blue,
-        ];
+        return new RedGreenBlueColor($r_rgb, $g_rgb, $b_rgb);
     }
 }

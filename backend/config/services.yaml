@@ -17,3 +17,4 @@ services:
 
     App\Application\Argument\RequestBody: ~
     App\Framework\ArgumentResolver\RequestBodyResolver: ~
+    App\Domain\V2\PaintFactory: ~

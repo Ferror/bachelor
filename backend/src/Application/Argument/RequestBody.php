@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Application\Argument;
 
+use JsonException;
 use function json_decode;
 
 final class RequestBody
@@ -12,7 +13,7 @@ final class RequestBody
     }
 
     /**
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function getBody(): array
     {
