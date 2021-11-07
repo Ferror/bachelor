@@ -27,7 +27,7 @@ final class RedGreenBlueColor implements Printable
 
     public function createMixable(): Mixable
     {
-        return Converter::toRedYellowBlue($this->red / 255.0, $this->green / 255.0, $this->blue / 255.0);
+        return Converter::toRedYellowBlue($this->red, $this->green, $this->blue);
     }
 
     public function jsonSerialize(): array

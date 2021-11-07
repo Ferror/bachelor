@@ -10,9 +10,9 @@ final class Converter
 {
     public static function toRedYellowBlue(float $r, float $g, float $b): RedYellowBlueColor
     {
-        $R_rgb = $r;
-        $G_rgb = $g;
-        $B_rgb = $b;
+        $R_rgb = $r / 255;
+        $G_rgb = $g / 255;
+        $B_rgb = $b / 255;
 
         $i_w = min($R_rgb, $G_rgb, $B_rgb);
 
@@ -85,6 +85,6 @@ final class Converter
         $g_rgb += $i_w;
         $b_rgb += $i_w;
 
-        return new RedGreenBlueColor($r_rgb, $g_rgb, $b_rgb);
+        return new RedGreenBlueColor($r_rgb * 255, $g_rgb * 255, $b_rgb * 255);
     }
 }

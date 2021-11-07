@@ -25,9 +25,9 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
         }
 
         return new self(
-            ($this->red + $mixable->red) / $ratio,
-            ($this->yellow + $mixable->yellow) / $ratio,
-            ($this->blue + $mixable->blue) / $ratio,
+            ($this->red + $mixable->red),
+            ($this->yellow + $mixable->yellow),
+            ($this->blue + $mixable->blue),
         );
     }
 
