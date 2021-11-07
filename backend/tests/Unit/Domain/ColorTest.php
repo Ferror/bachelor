@@ -19,42 +19,36 @@ final class ColorTest extends TestCase
 
     public function mixes(): Generator
     {
-        //Black + Black = Black
         yield [
             new ColorV1(0.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 0.0),
             'Black + Black = Black',
         ];
-        //White + White = White
         yield [
             new ColorV1(0.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 0.0),
             'White + White = White',
         ];
-        //Blue + Blue = Blue
         yield [
             new ColorV1(0.0, 0.0, 1.0),
             new ColorV1(0.0, 0.0, 1.0),
             new ColorV1(0.0, 0.0, 1.0),
             'Blue + Blue = Blue',
         ];
-        //Blue + Yellow = Green
         yield [
             new ColorV1(0.0, 0.0, 1.0),
             new ColorV1(1.0, 1.0, 0.0),
             new ColorV1(0.0, 1.0, 0.0),
             'Blue + Yellow = Green',
         ];
-        //Red + Yellow = Orange
         yield [
             new ColorV1(1.0, 0.0, 0.0),
             new ColorV1(1.0, 1.0, 0.0),
             new ColorV1(1.0, 0.5, 0.0),
             'Red + Yellow = Orange',
         ];
-        //Red + Blue = Purple
         yield [
             new ColorV1(1.0, 0.0, 0.0),
             new ColorV1(0.0, 0.0, 1.0),
@@ -62,36 +56,36 @@ final class ColorTest extends TestCase
             'Red + Blue = Purple',
         ];
 
-//        //Grey + Dark Grey = Grey
-//        yield [
-//            new ColorV1(0.6, 0.6, 0.6),
-//            new ColorV1(0.3, 0.3, 0.3),
-//            new ColorV1(0.45, 0.45, 0.45),
-//        ];
-//        //White + Black = Grey
-//        yield [
-//            new ColorV1(1.0, 1.0, 1.0),
-//            new ColorV1(0.0, 0.0, 0.0),
-//            new ColorV1(0.5, 0.5, 0.5),
-//        ];
-//        //White + Red = Light Red aka Pink
-//        yield [
-//            new ColorV1(1.0, 0.0, 0.0),
-//            new ColorV1(1.0, 1.0, 1.0),
-//            new ColorV1(1.0, 0.5, 0.5),
-//        ];
-//        //White + Blue = Light Blue
-//        yield [
-//            new ColorV1(0.0, 0.0, 1.0),
-//            new ColorV1(1.0, 1.0, 1.0),
-//            new ColorV1(0.5, 0.5, 1.0),
-//        ];
-//        //White + Green = Light Green
-//        yield [
-//            new ColorV1(0.0, 0.0, 1.0),
-//            new ColorV1(1.0, 1.0, 1.0),
-//            new ColorV1(0.5, 0.5, 1.0),
-//        ];
+        yield [
+            new ColorV1(0.6, 0.6, 0.6),
+            new ColorV1(0.3, 0.3, 0.3),
+            new ColorV1(0.5, 0.5, 0.5),
+            'Grey + Dark Grey = Grey'
+        ];
+        yield [
+            new ColorV1(1.0, 1.0, 1.0),
+            new ColorV1(0.0, 0.0, 0.0),
+            new ColorV1(0.5, 0.5, 0.5),
+            'White + Black = Grey',
+        ];
+        yield [
+            new ColorV1(1.0, 0.0, 0.0),
+            new ColorV1(1.0, 1.0, 1.0),
+            new ColorV1(1.0, 0.5, 0.5),
+            'White + Red = Light Red aka Pink',
+        ];
+        yield [
+            new ColorV1(0.0, 0.0, 1.0),
+            new ColorV1(1.0, 1.0, 1.0),
+            new ColorV1(0.5, 0.5, 1.0),
+            'White + Blue = Light Blue',
+        ];
+        yield [
+            new ColorV1(0.0, 0.0, 1.0),
+            new ColorV1(1.0, 1.0, 1.0),
+            new ColorV1(0.5, 0.5, 1.0),
+            'White + Green = Light Green'
+        ];
     }
 
     /**
@@ -112,61 +106,51 @@ final class ColorTest extends TestCase
 
     public function colors(): Generator
     {
-        //Black
         yield [
             new ColorV1(0.0, 0.0, 0.0),
             new ColorV1(1.0, 1.0, 1.0),
             'Black',
         ];
-        //Red
         yield [
             new ColorV1(1.0, 0.0, 0.0),
             new ColorV1(1.0, 0.0, 0.0),
             'Red',
         ];
-        //Green
         yield [
             new ColorV1(0.0, 1.0, 0.0),
             new ColorV1(0.0, 1.0, 1.0),
             'Green',
         ];
-        //Blue
         yield [
             new ColorV1(0.0, 0.0, 1.0),
             new ColorV1(0.0, 0.0, 1.0),
             'Blue',
         ];
-        //Yellow
         yield [
             new ColorV1(1.0, 1.0, 0.0),
             new ColorV1(0.0, 1.0, 0.0),
             'Yellow',
         ];
-        //Magenta
         yield [
             new ColorV1(1.0, 0.0, 1.0),
             new ColorV1(1.0, 0.0, 0.5),
             'Magenta',
         ];
-        //Cyan
         yield [
             new ColorV1(0.0, 1.0, 1.0),
             new ColorV1(0.0, 0.5, 1.0),
             'Cyan',
         ];
-        //Orange
         yield [
             new ColorV1(1.0, 0.5, 0.0),
             new ColorV1(1.0, 1.0, 0.0),
             'Orange',
         ];
-        //Purple
         yield [
             new ColorV1(0.5, 0.0, 1.0),
             new ColorV1(1.0, 0.0, 1.0),
             'Purple',
         ];
-        //White
         yield [
             new ColorV1(1.0, 1.0, 1.0),
             new ColorV1(0.0, 0.0, 0.0),

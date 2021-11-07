@@ -27,8 +27,17 @@ final class ColorV1 implements JsonSerializable
     public function isLightening(self $color): bool
     {
         //RGB white is 255, 255, 255
+        return $color->red === $color->green
+            && $color->green === $color->blue
+            && $color->red >= 0.5;
+    }
 
-//        if ()
+    public function isDarkening(self $color): bool
+    {
+        //RGB white is 255, 255, 255
+        return $color->red === $color->green
+            && $color->green === $color->blue
+            && $color->red < 0.5;
     }
 
     public function mix(self $color): self
@@ -41,9 +50,6 @@ final class ColorV1 implements JsonSerializable
         $first = self::convertToRyb($this);
         $second = self::convertToRyb($color);
 
-        dump($first);
-        dump($second);
-
         //try normalization
         $r = $first->red + $second->red;
         $g = $first->green + $second->green;
@@ -51,13 +57,25 @@ final class ColorV1 implements JsonSerializable
 
         $n = max($r, $g, $b);
 
-        $mix = new self(
-            $r / $n,
-            $g / $n,
-            $b / $n,
-        );
-
-        dump($mix);
+        if ($this->isDarkening($color)) {
+            $mix = new self(
+                $r / 2 / $n,
+                $g / 2 / $n,
+                $b / 2 / $n,
+            );
+        } elseif ($this->isLightening($color)) {
+            $mix = new self(
+                $r / 2 / $n,
+                $g / 2 / $n,
+                $b / 2 / $n,
+            );
+        } else {
+            $mix = new self(
+                $r / $n,
+                $g / $n,
+                $b / $n,
+            );
+        }
 
         return self::convertToRgbV2($mix);
     }
