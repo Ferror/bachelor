@@ -37,6 +37,7 @@ final class ColorTest extends TestCase
             new ColorV1(0.0, 0.0, 1.0),
             'Blue + Blue = Blue',
         ];
+
         yield [
             new ColorV1(0.0, 0.0, 1.0),
             new ColorV1(1.0, 1.0, 0.0),
@@ -68,6 +69,7 @@ final class ColorTest extends TestCase
             new ColorV1(0.5, 0.5, 0.5),
             'White + Black = Grey',
         ];
+
         yield [
             new ColorV1(1.0, 0.0, 0.0),
             new ColorV1(1.0, 1.0, 1.0),
@@ -85,6 +87,25 @@ final class ColorTest extends TestCase
             new ColorV1(1.0, 1.0, 1.0),
             new ColorV1(0.5, 0.5, 1.0),
             'White + Green = Light Green'
+        ];
+
+        yield [
+            new ColorV1(1.0, 0.0, 0.0),
+            new ColorV1(0.0, 0.0, 0.0),
+            new ColorV1(0.5, 0.0, 0.0),
+            'Black + Red = Dark Red',
+        ];
+        yield [
+            new ColorV1(0.0, 0.0, 1.0),
+            new ColorV1(0.0, 0.0, 0.0),
+            new ColorV1(0.0, 0.0, 0.5),
+            'Black + Blue = Dark Blue',
+        ];
+        yield [
+            new ColorV1(0.0, 1.0, 0.0),
+            new ColorV1(0.0, 0.0, 0.0),
+            new ColorV1(0.0, 0.5, 0.0),
+            'Black + Green = Dark Green'
         ];
     }
 

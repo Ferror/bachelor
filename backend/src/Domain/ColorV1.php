@@ -40,6 +40,18 @@ final class ColorV1 implements JsonSerializable
             && $color->red < 0.5;
     }
 
+    /**
+     * Check whether the colors are soo
+     */
+    public function isGreyish(self $from, self $to): bool
+    {
+        return
+            $from->red === $from->green
+            && $from->green === $from->blue
+            && $to->red === $to->green
+            && $to->green === $to->blue;
+    }
+
     public function mix(self $color): self
     {
         // Mix of two same colors is the same color
@@ -57,13 +69,19 @@ final class ColorV1 implements JsonSerializable
 
         $n = max($r, $g, $b);
 
-        if ($this->isDarkening($color)) {
+        if ($this->isGreyish($color, $this)) {
             $mix = new self(
                 $r / 2 / $n,
                 $g / 2 / $n,
                 $b / 2 / $n,
             );
-        } elseif ($this->isLightening($color)) {
+        } elseif ($this->isDarkening($color) || $this->isDarkening($this)) {
+            $mix = new self(
+                $r / $n,
+                $g / $n,
+                $b / $n,
+            );
+        } elseif ($this->isLightening($color) || $this->isLightening($this)) {
             $mix = new self(
                 $r / 2 / $n,
                 $g / 2 / $n,
