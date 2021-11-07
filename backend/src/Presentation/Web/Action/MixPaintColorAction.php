@@ -25,7 +25,6 @@ final class MixPaintColorAction extends AbstractController
     public function __invoke(RequestBody $body): Response
     {
         $colors = $body->getBody()['colors'];
-
         $base = $this->paintFactory->fromRedGreenBlue(
             new RedGreenBlueColor(
                 $colors[0]['model']['r'] / 255,
@@ -43,7 +42,6 @@ final class MixPaintColorAction extends AbstractController
             new Volume($colors[1]['volume'])
         );
         $result = $base->mix($paint);
-
         $presenter = PaintPresenter::fromRedGreenBlueColor(
             $result->getColor()->createPrintable(),
             $result->getVolume()

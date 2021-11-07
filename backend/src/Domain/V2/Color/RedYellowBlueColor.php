@@ -19,10 +19,21 @@ final class RedYellowBlueColor implements Mixable
         }
     }
 
+    public function equals(self $color): bool
+    {
+        return $this->red === $color->red
+            && $this->yellow === $color->yellow
+            && $this->blue === $color->blue;
+    }
+
     public function mix(Mixable $mixable, float $ratio): Mixable
     {
         if (!$mixable instanceof RedYellowBlueColor) {
-            throw new \InvalidArgumentException();
+            throw new \InvalidArgumentException('You can mix only RYB together');
+        }
+
+        if ($this->equals($mixable)) {
+            return $this;
         }
 
         return new self(

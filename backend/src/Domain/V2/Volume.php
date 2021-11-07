@@ -9,6 +9,9 @@ final class Volume
         private float $value
     )
     {
+        if ($value <= 0.0) {
+            throw new \InvalidArgumentException('Paint volume must be positive');
+        }
     }
 
     public function add(self $volume): self

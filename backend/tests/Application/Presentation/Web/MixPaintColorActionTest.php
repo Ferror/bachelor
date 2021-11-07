@@ -12,72 +12,29 @@ final class MixPaintColorActionTest extends WebTestCase
     /**
      * @dataProvider paints
      */
-    public function testItWorks(array $colors, array $response): void
+    public function testItWorks(array $request, array $response, $message): void
     {
         $client = self::createClient();
         $client->request(
             method: Request::METHOD_GET,
             uri: '/paints',
-            server: [
-                'HTTP_CONTENT_TYPE' => 'application/json',
-            ],
-            content: json_encode(['colors' => $colors], JSON_THROW_ON_ERROR),
+            server: ['HTTP_CONTENT_TYPE' => 'application/json'],
+            content: json_encode($request, JSON_THROW_ON_ERROR),
         );
         self::assertResponseIsSuccessful();
-        self::assertEquals(json_encode($response, JSON_THROW_ON_ERROR), $client->getResponse()->getContent());
+        self::assertEquals(json_encode($response, JSON_THROW_ON_ERROR), $client->getResponse()->getContent(), $message);
     }
 
     public function paints(): Generator
     {
-        yield [
-            [
-                [
-                    'model' => [
-                        'r' => 0,
-                        'g' => 0,
-                        'b' => 255,
-                    ],
-                    'volume' => 50,
-                ],
-                [
-                    'model' => [
-                        'r' => 255,
-                        'g' => 255,
-                        'b' => 0,
-                    ],
-                    'volume' => 50,
-                ],
-            ],
-            [
-                'model' => [
-                    'r' => 0,
-                    'g' => 255,
-                    'b' => 0,
-                ],
-                'volume' => 100,
-            ]
-        ];
-//        yield [
-//            [
-//                [
-//                    'r' => 0,
-//                    'g' => 0,
-//                    'b' => 0,
-//                ],
-//                [
-//                    'r' => 0,
-//                    'g' => 0,
-//                    'b' => 0,
-//                ],
-//            ],
-//            [
-//                'model' => [
-//                    'r' => 0,
-//                    'g' => 0,
-//                    'b' => 0,
-//                ],
-//                'volume' => 120,
-//            ]
-//        ];
+        $file = json_decode(file_get_contents(__DIR__ . '/data.json'), true, 512, JSON_THROW_ON_ERROR);
+
+        foreach ($file['tests'] as $test) {
+            yield [
+                $test['request'],
+                $test['response'],
+                $test['name'],
+            ];
+        }
     }
 }
