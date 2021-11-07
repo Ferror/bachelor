@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Domain;
+namespace App\Domain\V1;
 
 use JsonSerializable;
 use function max;
 use function min;
 
-final class ColorV1 implements JsonSerializable
+final class Color implements JsonSerializable
 {
     public function __construct(
         private float $red,
@@ -98,7 +98,7 @@ final class ColorV1 implements JsonSerializable
         return self::convertToRgbV2($mix);
     }
 
-    public static function convertToRyb(ColorV1 $color): self
+    public static function convertToRyb(Color $color): self
     {
         $R_rgb = $color->red;
         $G_rgb = $color->green;
@@ -138,7 +138,7 @@ final class ColorV1 implements JsonSerializable
         return new self($r_ryb, $y_ryb, $b_ryb);
     }
 
-    public static function convertToRgbV2(ColorV1 $color): self
+    public static function convertToRgbV2(Color $color): self
     {
         $R_ryb = $color->red;
         $Y_ryb = $color->green;

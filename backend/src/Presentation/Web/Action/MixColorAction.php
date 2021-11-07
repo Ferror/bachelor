@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Presentation\Web\Action;
 
 use App\Application\Argument\RequestBody;
-use App\Domain\ColorV1;
+use App\Domain\V1\Color;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +18,10 @@ final class MixColorAction extends AbstractController
         $memory = [];
 
         foreach ($body->getBody()['colors'] as $color) {
-            $memory[] = new ColorV1($color['r']/255, $color['g']/255, $color['b']/255);
+            $memory[] = new Color($color['r']/255, $color['g']/255, $color['b']/255);
         }
 
-        $last = array_pop($memory);
+        $last = \array_pop($memory);
 
         foreach ($memory as $color) {
             $last = $last->mix($color);

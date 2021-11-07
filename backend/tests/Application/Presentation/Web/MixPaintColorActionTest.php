@@ -19,15 +19,16 @@ final class MixPaintColorActionTest extends WebTestCase
             method: Request::METHOD_GET,
             uri: '/paints',
             server: ['HTTP_CONTENT_TYPE' => 'application/json'],
-            content: json_encode($request, JSON_THROW_ON_ERROR),
+            content: \json_encode($request, JSON_THROW_ON_ERROR),
         );
+
         self::assertResponseIsSuccessful();
-        self::assertEquals(json_encode($response, JSON_THROW_ON_ERROR), $client->getResponse()->getContent(), $message);
+        self::assertEquals(\json_encode($response, JSON_THROW_ON_ERROR), $client->getResponse()->getContent(), $message);
     }
 
     public function paints(): Generator
     {
-        $file = json_decode(file_get_contents(__DIR__ . '/data.json'), true, 512, JSON_THROW_ON_ERROR);
+        $file = \json_decode(\file_get_contents(__DIR__ . '/data.json'), true, 512, JSON_THROW_ON_ERROR);
 
         foreach ($file['tests'] as $test) {
             yield [

@@ -14,9 +14,7 @@ final class MixColorActionTest extends WebTestCase
         $client->request(
             method: Request::METHOD_GET,
             uri: '/colors',
-            server: [
-                'HTTP_CONTENT_TYPE' => 'application/json',
-            ],
+            server: ['HTTP_CONTENT_TYPE' => 'application/json'],
             content: json_encode([
                 'colors' => [
                     [
