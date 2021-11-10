@@ -1,7 +1,7 @@
 ci:
 	composer validate
 	bin/phpunit
-	vendor/bin/phpstan analyse -c phpstan.neon
+	#vendor/bin/phpstan analyse -c phpstan.neon
 unit:
 	bin/phpunit --testsuite=unit
 coverage:
