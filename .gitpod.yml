@@ -6,7 +6,7 @@ tasks:
     command: yarn build
   - before: cd backend
     init: composer install
-    command: symfony serve
+    command: /home/gitpod/.symfony/bin/symfony serve serve
 # Ports to expose on workspace startup
 ports:
   - port: 8000
