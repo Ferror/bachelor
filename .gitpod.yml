@@ -1,0 +1,13 @@
+# Commands to start on workspace startup
+tasks:
+  - command: wget https://get.symfony.com/cli/installer -O - | bash
+  - before: cd frondend
+    init: yarn install
+    command: yarn build
+  - before: cd backend
+    init: composer install
+    command: symfony serve
+# Ports to expose on workspace startup
+ports:
+  - port: 8000
+    onOpen: open-preview
