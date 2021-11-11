@@ -4,7 +4,19 @@
         <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <List />
 </template>
+
+<script>
+import List from '@/components/List.vue'
+
+export default {
+    name: 'App',
+    components: {
+        List: List
+    }
+}
+</script>
 
 <style>
 #app {
