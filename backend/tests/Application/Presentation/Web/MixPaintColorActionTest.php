@@ -12,7 +12,7 @@ final class MixPaintColorActionTest extends WebTestCase
     /**
      * @dataProvider paints
      */
-    public function testItWorks(array $request, array $response, $message): void
+    public function testItWorks(array $request, array $response, string $message): void
     {
         $client = self::createClient();
         $client->request(
@@ -28,7 +28,7 @@ final class MixPaintColorActionTest extends WebTestCase
 
     public function paints(): Generator
     {
-        $file = \json_decode(\file_get_contents(__DIR__ . '/data.json'), true, 512, JSON_THROW_ON_ERROR);
+        $file = \json_decode(\file_get_contents(__DIR__ . '/paints.json'), true, 512, JSON_THROW_ON_ERROR);
 
         foreach ($file['tests'] as $test) {
             yield [

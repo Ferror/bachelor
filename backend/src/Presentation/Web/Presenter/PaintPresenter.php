@@ -12,9 +12,9 @@ final class PaintPresenter implements JsonSerializable
     public static function fromRedGreenBlueColor(RedGreenBlueColor $color, Volume $volume): self
     {
         return new self(
-            $color->getRed() * 255,
-            $color->getGreen() * 255,
-            $color->getBlue() * 255,
+            $color->getRed(),
+            $color->getGreen(),
+            $color->getBlue(),
             $volume->toFloat(),
         );
     }

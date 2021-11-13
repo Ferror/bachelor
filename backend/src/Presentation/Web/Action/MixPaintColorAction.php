@@ -27,17 +27,17 @@ final class MixPaintColorAction extends AbstractController
         $colors = $body->getBody()['colors'];
         $base = $this->paintFactory->fromRedGreenBlue(
             new RedGreenBlueColor(
-                $colors[0]['model']['r'] / 255,
-                $colors[0]['model']['g'] / 255,
-                $colors[0]['model']['b'] / 255,
+                $colors[0]['model']['r'],
+                $colors[0]['model']['g'],
+                $colors[0]['model']['b'],
             ),
             new Volume($colors[0]['volume'])
         );
         $paint = $this->paintFactory->fromRedGreenBlue(
             new RedGreenBlueColor(
-                $colors[1]['model']['r'] / 255,
-                $colors[1]['model']['g'] / 255,
-                $colors[1]['model']['b'] / 255,
+                $colors[1]['model']['r'],
+                $colors[1]['model']['g'],
+                $colors[1]['model']['b'],
             ),
             new Volume($colors[1]['volume'])
         );

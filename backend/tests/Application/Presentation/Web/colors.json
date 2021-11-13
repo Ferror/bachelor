@@ -1,0 +1,60 @@
+{
+    "tests": [
+        {
+            "name": "Blue + Yellow = Green",
+            "request": {
+                "colors": [
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 1.0
+                        }
+                    },
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 1.0
+                        }
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0
+                }
+            }
+        },
+        {
+            "name": "Red + Yellow = Orange",
+            "request": {
+                "colors": [
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 0,
+                            "b": 0
+                        }
+                    },
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 0
+                        }
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 1.0,
+                    "g": 0.5,
+                    "b": 0
+                }
+            }
+        }
+    ]
+}
