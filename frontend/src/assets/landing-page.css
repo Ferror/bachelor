@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+
+:root {
+    --black:
+            rgba(0, 0, 0, 1);
+    --deep-cove:
+            rgba(19, 15, 64, 1);
+    --teal-blue:
+            rgba(34, 166, 179, 1);
+    --heavy-metal:
+            rgba(45, 42, 42, 1);
+    --jacarta:
+            rgba(48, 51, 107, 1);
+    --black-coral-pearl:
+            rgba(83, 92, 104, 1);
+    --indigo:
+            rgba(104, 109, 224, 1);
+    --purple-heart:
+            rgba(110, 65, 226, 1);
+    --conifer:
+            rgba(186, 220, 88, 0.902);
+    --fuchsia-pink:
+            rgba(190, 46, 221, 1);
+    --mist-gray:
+            rgba(196, 196, 196, 0.2);
+    --salmon-pearl:
+            rgba(235, 77, 75, 1);
+    --carrot-orange:
+            rgba(240, 147, 43, 1);
+    --khaki:
+            rgba(246, 229, 141, 1);
+    --desert-storm:
+            rgba(248, 248, 248, 1);
+    --banana:
+            rgba(249, 202, 36, 1);
+    --white-2:
+            rgba(255, 255, 255, 0.8);
+    --white:
+            rgba(255, 255, 255, 1);
+
+    --font-size-m: 12px;
+    --font-size-l: 14px;
+    --font-size-xl: 16px;
+    --font-size-xxl: 18px;
+    --font-size-xxxl: 20px;
+    --font-size-xxxxl: 24px;
+
+    --font-family-roboto: "Roboto";
+}
+
+.screen a {
+    display: contents;
+    text-decoration: none;
+}
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.roboto-normal-white-18px {
+    color: var(--white-2);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xxl);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-normal-white-16px {
+    color: var(--white-2);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-bold-black-12px {
+    color: var(--black);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.border-1px-black {
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--black);
+}
+
+.roboto-normal-black-20px {
+    color: var(--black);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xxxl);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-normal-black-16px {
+    color: var(--black);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-normal-white-14px {
+    color: var(--white-2);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-l);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-normal-white-24px-2 {
+    color: var(--white-2);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xxxxl);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-normal-black-12px {
+    color: var(--black);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-normal-white-24px {
+    color: var(--white);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xxxxl);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-normal-white-12px {
+    color: var(--white-2);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    font-style: normal;
+}
