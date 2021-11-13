@@ -83,9 +83,8 @@ export default {
 .hero {
     display: flex;
     height: 314px;
-    margin-left: 240px;
-    margin-top: 80px;
     width: 900px;
+    margin: 80px auto 0 auto;
 }
 
 .group-37 {
