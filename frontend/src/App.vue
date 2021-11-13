@@ -4,7 +4,6 @@
         <router-link to="/about">About</router-link>
     </div>
     <router-view/>
-    <Button label="Submit" icon="pi pi-check" iconPos="right" />
 </template>
 
 <script>
