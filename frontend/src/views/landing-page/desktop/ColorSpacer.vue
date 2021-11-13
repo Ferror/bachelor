@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: "Gqbc64",
+    name: 'ColorSpacer',
 };
 </script>
 
@@ -25,15 +25,14 @@ export default {
     background-color: var(--white);
     display: flex;
     height: 160px;
-    margin-top: 86.4px;
-    width: 1440px;
+    margin-top: 86px;
+    width: 100%;
 }
 
 .colors {
     display: flex;
-    margin-left: 300px;
-    margin-top: 39px;
     width: 840px;
+    margin: 40px auto;
 }
 
 .rectangle-27 {
@@ -44,8 +43,26 @@ export default {
     width: 40px;
 }
 
+.rectangle-26 {
+    background-color: var(--black-coral-pearl);
+    border-radius: 50px;
+    height: 40px;
+    margin-left: 40px;
+    margin-top: 21px;
+    width: 40px;
+}
+
 .rectangle-25 {
     background-color: var(--banana);
+    border-radius: 50px;
+    height: 50px;
+    margin-left: 40px;
+    margin-top: 15px;
+    width: 50px;
+}
+
+.rectangle-24 {
+    background-color: var(--deep-cove);
     border-radius: 50px;
     height: 50px;
     margin-left: 40px;
@@ -62,8 +79,26 @@ export default {
     width: 60px;
 }
 
+.rectangle-23 {
+    background-color: var(--jacarta);
+    border-radius: 50px;
+    height: 60px;
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 60px;
+}
+
 .rectangle-21 {
     background-color: var(--salmon-pearl);
+    border-radius: 50px;
+    height: 70px;
+    margin-left: 40px;
+    margin-top: 5px;
+    width: 70px;
+}
+
+.rectangle-20 {
+    background-color: var(--indigo);
     border-radius: 50px;
     height: 70px;
     margin-left: 40px;
@@ -77,41 +112,5 @@ export default {
     height: 80px;
     margin-left: 40px;
     width: 80px;
-}
-
-.rectangle-20 {
-    background-color: var(--indigo);
-    border-radius: 50px;
-    height: 70px;
-    margin-left: 40px;
-    margin-top: 5px;
-    width: 70px;
-}
-
-.rectangle-23 {
-    background-color: var(--jacarta);
-    border-radius: 50px;
-    height: 60px;
-    margin-left: 40px;
-    margin-top: 10px;
-    width: 60px;
-}
-
-.rectangle-24 {
-    background-color: var(--deep-cove);
-    border-radius: 50px;
-    height: 50px;
-    margin-left: 40px;
-    margin-top: 15px;
-    width: 50px;
-}
-
-.rectangle-26 {
-    background-color: var(--black-coral-pearl);
-    border-radius: 50px;
-    height: 40px;
-    margin-left: 40px;
-    margin-top: 21px;
-    width: 40px;
 }
 </style>

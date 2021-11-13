@@ -1,146 +1,165 @@
-/******************************************
-*  src/components/LandingPageDesktop.vue
-******************************************/
-
 <template>
-    <div class="container-center-horizontal">
-        <div class="landing-page-desktop screen">
-            <x-nav
-                :paintShop="paintResultProps.paintShop"
-                :stwrzFarb="paintResultProps.stwrzFarb"
-            />
-            <group33
-                :pomalujSwjWiat="group33Props.pomalujSwjWiat"
-                :text7="group33Props.text7"
-                :stylePrimaryStateDefaultIconFalseCi="group33Props.stylePrimaryStateDefaultIconFalseCi"
-            />
-            <group34 />
-            <div class="group-32">
-                <div class="overlap-group">
-                    <div class="text valign-text-middle roboto-normal-black-20px">{{ text12 }}</div>
-                    <p class="text-5 valign-text-middle roboto-normal-black-16px">{{ text11 }}</p>
-                </div>
-                <img class="group-39" :src="group39" />
+    <div class="landing-page-desktop screen">
+        <Nav :paintShop="navProps.paintShop" :stwrzFarb="navProps.stwrzFarb" />
+        <div class="hero">
+            <div class="group-37">
+                <div class="t-1 valign-text-middle">{{ t1 }}</div>
+                <div class="p-1 valign-text-middle">{{ p1 }}</div>
             </div>
-            <div class="group-31">
-                <paint-result
-                    :yourColorName="paintResultProps2.yourColorName"
-                    :line3="paintResultProps2.line3"
-                    :rectangle14="paintResultProps2.rectangle14"
-                />
-                <div class="overlap-group1">
-                    <div class="text valign-text-middle roboto-normal-black-20px">{{ text10 }}</div>
-                    <p class="text-3 valign-text-middle roboto-normal-black-16px">{{ text9 }}</p>
-                </div>
-            </div>
-            <x-footer />
+            <img class="group-38" :src="group38" />
         </div>
+        <ColorSpacer />
+        <div class="flex-col">
+            <div class="text">
+                <text2 :t2="text2Props.t2" />
+                <div class="group-39"><img class="group" :src="group" /></div>
+            </div>
+            <div class="text">
+                <div class="group-42">
+                    <paint-result
+                        :yourColorName="paintResultProps.yourColorName"
+                        :line3="paintResultProps.line3"
+                        :rectangle14="paintResultProps.rectangle14"
+                    />
+                </div>
+                <text2 :t2="text22Props.t2" :className="text22Props.className" />
+            </div>
+        </div>
+        <Footer
+            :paintShopInc="paintShopInc"
+            :contactUs="contactUs"
+            :aboutUs="aboutUs"
+            :phone="phone"
+            :emailGmailCom="emailGmailCom"
+            :text1="text1"
+        />
     </div>
 </template>
 
 <script>
-import XNav from "./XNav";
-import Group33 from "./Group33";
-import Group34 from "./Group34";
+import Nav from "./Nav";
+import ColorSpacer from "./ColorSpacer";
+import Text2 from "./Text2";
 import PaintResult from "./PaintResult";
-import xFooter from "./xFooter";
+import Footer from "./Footer";
 
 export default {
     name: "LandingPageDesktop",
     components: {
-        XNav,
-        Group33,
-        Group34,
+        ColorSpacer,
+        Nav,
+        Text2,
         PaintResult,
-        xFooter,
+        Footer,
     },
-    props: ["text12", "text11", "group39", "text10", "text9", "paintResultProps", "group33Props", "paintResultProps2"],
+    props: [
+        "t1",
+        "p1",
+        "group38",
+        "group",
+        "paintShopInc",
+        "contactUs",
+        "aboutUs",
+        "phone",
+        "emailGmailCom",
+        "text1",
+        "navProps",
+        "text2Props",
+        "paintResultProps",
+        "text22Props",
+    ],
 };
 </script>
 
 <style>
 .landing-page-desktop {
-    align-items: center;
     background-color: var(--desert-storm);
     display: flex;
     flex-direction: column;
-    height: 1760px;
     overflow: hidden;
     position: relative;
-    width: 1440px;
 }
 
-.group-32 {
-    align-items: center;
+.hero {
     display: flex;
-    height: 320px;
-    margin-right: 171px;
-    margin-top: 36px;
-    min-width: 789px;
+    height: 314px;
+    margin-left: 240px;
+    margin-top: 80px;
+    width: 900px;
 }
 
-.overlap-group {
-    align-items: center;
-    background-color: var(--white);
-    border-radius: 5px;
-    box-shadow: 0px 8px 25px
-    #00000040;
+.group-37 {
     display: flex;
     flex-direction: column;
-    min-height: 320px;
-    width: 440px;
+    height: 240px;
+    width: 484px;
+}
+
+.t-1 {
+    color: var(--black);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xxxxl);
+    font-weight: 400;
+    height: 80px;
+    letter-spacing: 3px;
+    text-align: center;
+    width: 480px;
+    line-height: 80px;
+}
+
+.p-1 {
+    color: var(--black);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xxl2);
+    font-weight: 400;
+    height: 160px;
+    letter-spacing: 2px;
+    line-height: 25px;
+    width: 480px;
+}
+
+.group-38 {
+    height: 309px;
+    margin-left: 147px;
+    margin-top: 5px;
+    width: 276px;
+}
+
+.flex-col {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    min-height: 800px;
+    width: 960px;
+    margin: 0 auto;
 }
 
 .text {
-    height: 80px;
-    letter-spacing: 0;
-    text-align: center;
-    width: 440px;
-}
-
-.text-5 {
-    height: 204px;
-    letter-spacing: 0.8px;
-    line-height: 25px;
-    margin-left: 9.17px;
-    width: 403px;
+    display: flex;
+    position: relative;
+    width: 960px;
 }
 
 .group-39 {
-    height: 212px;
-    margin-left: 184px;
-    margin-top: 23.53px;
-    width: 191px;
+    background-color: var(--desert-storm);
+    display: flex;
+    height: 400px;
+    margin-left: 36px;
+    width: 480px;
 }
 
-.group-31 {
-    align-items: center;
+.group {
+    height: 176px;
+    margin-left: 162px;
+    margin-top: 120px;
+    width: 155px;
+}
+
+.group-42 {
+    background-color: var(--desert-storm);
     display: flex;
-    height: 320px;
-    margin-left: 166px;
-    margin-top: 84px;
-    min-width: 794px;
+    height: 400px;
     position: relative;
-}
-
-.overlap-group1 {
-    align-items: center;
-    background-color: var(--white);
-    border-radius: 5px;
-    box-shadow: 0px 8px 25px
-    #00000040;
-    display: flex;
-    flex-direction: column;
-    margin-left: 200px;
-    min-height: 320px;
-    width: 440px;
-}
-
-.text-3 {
-    height: 200px;
-    letter-spacing: 0.8px;
-    line-height: 25px;
-    margin-left: 9.17px;
-    width: 403px;
+    width: 480px;
 }
 </style>

@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name: "xNav",
+    name: "Nav",
     props: ["paintShop", "stwrzFarb"],
 };
 </script>

@@ -40,7 +40,7 @@ export default {
     align-items: flex-start;
     display: flex;
     height: 240px;
-    min-width: 1452px;
+    width: 100%;
 }
 
 .overlap-group {
@@ -49,7 +49,7 @@ export default {
     display: flex;
     flex-direction: column;
     min-height: 240px;
-    width: 1440px;
+    width: 100%;
 }
 
 .flex-col-1 {
