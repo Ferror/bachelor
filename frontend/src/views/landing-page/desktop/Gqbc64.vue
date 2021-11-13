@@ -1,42 +1,46 @@
-/******************************************
-*  src/components/Group34.vue
-******************************************/
-
 <template>
-    <div class="group-34">
-        <div class="rectangle-27"></div>
-        <div class="rectangle-25"></div>
-        <div class="rectangle-22"></div>
-        <div class="rectangle-21"></div>
-        <div class="rectangle-19"></div>
-        <div class="rectangle-20"></div>
-        <div class="rectangle-23"></div>
-        <div class="rectangle-24"></div>
-        <div class="rectangle-26"></div>
+    <div class="color-spacer">
+        <div class="colors">
+            <div class="rectangle-27"></div>
+            <div class="rectangle-25"></div>
+            <div class="rectangle-22"></div>
+            <div class="rectangle-21"></div>
+            <div class="rectangle-19"></div>
+            <div class="rectangle-20"></div>
+            <div class="rectangle-23"></div>
+            <div class="rectangle-24"></div>
+            <div class="rectangle-26"></div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Group34",
+    name: "Gqbc64",
 };
 </script>
 
 <style>
-.group-34 {
-    align-items: center;
+.color-spacer {
     background-color: var(--white);
     display: flex;
     height: 160px;
-    margin-top: 73px;
-    min-width: 1440px;
-    padding: 39px 300px;
+    margin-top: 86.4px;
+    width: 1440px;
+}
+
+.colors {
+    display: flex;
+    margin-left: 300px;
+    margin-top: 39px;
+    width: 840px;
 }
 
 .rectangle-27 {
     background-color: var(--khaki);
     border-radius: 50px;
     height: 40px;
+    margin-top: 21px;
     width: 40px;
 }
 
@@ -44,8 +48,8 @@ export default {
     background-color: var(--banana);
     border-radius: 50px;
     height: 50px;
-    margin-bottom: 2px;
     margin-left: 40px;
+    margin-top: 15px;
     width: 50px;
 }
 
@@ -53,8 +57,8 @@ export default {
     background-color: var(--carrot-orange);
     border-radius: 50px;
     height: 60px;
-    margin-bottom: 2px;
     margin-left: 40px;
+    margin-top: 10px;
     width: 60px;
 }
 
@@ -62,13 +66,12 @@ export default {
     background-color: var(--salmon-pearl);
     border-radius: 50px;
     height: 70px;
-    margin-bottom: 2px;
     margin-left: 40px;
+    margin-top: 5px;
     width: 70px;
 }
 
 .rectangle-19 {
-    align-self: flex-start;
     background-color: var(--fuchsia-pink);
     border-radius: 50px;
     height: 80px;
@@ -80,8 +83,8 @@ export default {
     background-color: var(--indigo);
     border-radius: 50px;
     height: 70px;
-    margin-bottom: 2px;
     margin-left: 40px;
+    margin-top: 5px;
     width: 70px;
 }
 
@@ -89,8 +92,8 @@ export default {
     background-color: var(--jacarta);
     border-radius: 50px;
     height: 60px;
-    margin-bottom: 2px;
     margin-left: 40px;
+    margin-top: 10px;
     width: 60px;
 }
 
@@ -98,8 +101,8 @@ export default {
     background-color: var(--deep-cove);
     border-radius: 50px;
     height: 50px;
-    margin-bottom: 2px;
     margin-left: 40px;
+    margin-top: 15px;
     width: 50px;
 }
 
@@ -108,6 +111,7 @@ export default {
     border-radius: 50px;
     height: 40px;
     margin-left: 40px;
+    margin-top: 21px;
     width: 40px;
 }
 </style>

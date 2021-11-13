@@ -1,27 +1,21 @@
-/******************************************
-*  src/components/xFooter.vue
-******************************************/
-
 <template>
     <div class="footer">
-        <div class="overlap-group-2">
-            <div class="flex-col">
-                <div class="paint-shop-inc valign-text-middle roboto-normal-white-24px-2">
-                    Paint Shop inc.
+        <div class="overlap-group">
+            <div class="flex-col-1">
+                <div class="paint-shop-inc valign-text-middle roboto-normal-white-24px-2 t-2">
+                    {{ paintShopInc }}
                 </div>
                 <div class="flex-row roboto-normal-white-18px">
-                    <div class="contact-us valign-text-middle">Contact Us</div>
-                    <div class="about-us valign-text-middle">About US</div>
+                    <div class="contact-us valign-text-middle">{{ contactUs }}</div>
+                    <div class="about-us valign-text-middle">{{ aboutUs }}</div>
                 </div>
             </div>
             <div class="flex-row-1 roboto-normal-white-16px">
-                <div class="flex-col-1">
-                    <div class="flex-col-item valign-text-middle">+48 333 444 555</div>
-                    <div class="flex-col-item valign-text-middle">email@gmail.com</div>
+                <div class="flex-col-2">
+                    <div class="flex-col-item valign-text-middle">{{ phone }}</div>
+                    <div class="flex-col-item valign-text-middle">{{ emailGmailCom }}</div>
                 </div>
-                <p class="text-2">
-                    Paint Shop inc. was created to enable your creativity and freedom of choosing paint colors.
-                </p>
+                <p class="text-1">{{ text1 }}</p>
             </div>
         </div>
     </div>
@@ -29,21 +23,27 @@
 
 <script>
 export default {
-    name: "xFooter",
-};
+    name: 'Footer',
+    props: [
+        'paintShopInc',
+        'contactUs',
+        'aboutUs',
+        'phone',
+        'emailGmailCom',
+        'text1',
+    ]
+}
 </script>
 
-<style>
+<style scoped>
 .footer {
     align-items: flex-start;
-    align-self: flex-start;
     display: flex;
     height: 240px;
-    margin-top: 40px;
     min-width: 1452px;
 }
 
-.overlap-group-2 {
+.overlap-group {
     align-items: center;
     background-color: var(--heavy-metal);
     display: flex;
@@ -52,7 +52,7 @@ export default {
     width: 1440px;
 }
 
-.flex-col {
+.flex-col-1 {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -62,7 +62,7 @@ export default {
 
 .paint-shop-inc {
     height: 80px;
-    letter-spacing: 3.6px;
+    letter-spacing: 3px;
     text-align: center;
     width: 320px;
 }
@@ -75,13 +75,13 @@ export default {
 
 .contact-us {
     height: 40px;
-    letter-spacing: 2.7px;
+    letter-spacing: 3px;
     width: 400px;
 }
 
 .about-us {
     height: 40px;
-    letter-spacing: 2.7px;
+    letter-spacing: 3px;
     text-align: right;
     width: 400px;
 }
@@ -93,7 +93,7 @@ export default {
     min-width: 800px;
 }
 
-.flex-col-1 {
+.flex-col-2 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -103,12 +103,12 @@ export default {
 
 .flex-col-item {
     height: 40px;
-    letter-spacing: 1.6px;
+    letter-spacing: 2px;
     width: 400px;
 }
 
-.text-2 {
-    letter-spacing: 1.6px;
+.text-1 {
+    letter-spacing: 2px;
     margin-left: 80px;
     min-height: 75px;
     text-align: right;
