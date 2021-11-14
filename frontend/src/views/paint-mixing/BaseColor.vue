@@ -1,11 +1,7 @@
-/******************************************
-*  src/components/LightGrey.vue
-******************************************/
-
 <template>
     <div :class="[className]">
         <div class="overlap-group border-1px-black">
-            <img class="lock" src="@/assets/lock.png" />
+            <img class="lock" :src="require('@/assets/' + lock + '.png')" />
         </div>
         <div class="caption valign-text-middle roboto-normal-black-12px">{{ caption }}</div>
     </div>

@@ -1,14 +1,10 @@
-/******************************************
-*  src/components/Modal.vue
-******************************************/
-
 <template>
     <div class="modal">
         <div class="overlap-group">
             <div class="group-30">
                 <img
                     class="symbol-x"
-                    src="symbol-x.png"
+                    src="@/assets/symbol-x.png"
                 />
             </div>
             <div class="group-29">

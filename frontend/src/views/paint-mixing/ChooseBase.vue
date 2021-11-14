@@ -8,27 +8,27 @@
                 <div class="group-24">
                     <base-color
                         class-name="white"
-                        lock=""
+                        lock="lock-black"
                         caption="White"
                     />
                     <base-color
                         class-name="light-grey"
-                        lock=""
+                        lock="lock-black"
                         caption="Light Grey"
                     />
                     <base-color
                         class-name="grey"
-                        lock=""
+                        lock="lock-white"
                         caption="Grey"
                     />
                     <base-color
                         class-name="dark-grey"
-                        lock=""
+                        lock="lock-white"
                         caption="Dark Grey"
                     />
                     <base-color
                         class-name="black"
-                        lock=""
+                        lock="lock-white"
                         caption="Black"
                     />
                 </div>
