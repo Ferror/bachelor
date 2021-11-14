@@ -3,7 +3,7 @@
         <div class="wybor-podkladu screen">
             <h1 class="title valign-text-middle roboto-normal-white-24px">Paint Shop</h1>
             <div class="overlap-group4">
-                <modal loremIpsumTitleMo="Wybierz podkład" />
+                <modal title="Wybierz podkład" />
 
                 <div class="group-24">
                     <base-color

@@ -9,7 +9,7 @@
             </div>
             <div class="group-29">
                 <div class="lorem-ipsum-title-mo valign-text-middle roboto-normal-black-20px">
-                    {{ loremIpsumTitleMo }}
+                    {{ title }}
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
 <script>
 export default {
     name: "Modal",
-    props: ["loremIpsumTitleMo"],
+    props: ["title"],
 };
 </script>
 
