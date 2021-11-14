@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import LandingPageDesktop from "./landing-page/desktop/LandingPageDesktop";
+import LandingPageDesktop from "@/views/landing-page/desktop/LandingPageDesktop";
 
 export default {
-    name: "App",
+    name: "LandingPage",
     components: {
         LandingPageDesktop,
     },

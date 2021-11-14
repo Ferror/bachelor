@@ -45,7 +45,7 @@ export default {
 
 .group-30 {
     background-color: var(--mist-gray);
-    border-radius: 22.5px;
+    border-radius: 23px;
     display: flex;
     height: 45px;
     left: 690px;

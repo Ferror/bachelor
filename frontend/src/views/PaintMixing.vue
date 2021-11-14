@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ChooseBase from "./paint-mixing/ChooseBase";
+import ChooseBase from "@/views/paint-mixing/ChooseBase";
 import PaintMixerClient from "@/clients/PaintMixerClient";
 
 PaintMixerClient.mix();

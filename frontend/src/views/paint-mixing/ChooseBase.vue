@@ -87,7 +87,7 @@ export default {
 
 .title {
     height: 80px;
-    letter-spacing: 3.6px;
+    letter-spacing: 4px;
     text-align: center;
     width: 240px;
     position: absolute;
