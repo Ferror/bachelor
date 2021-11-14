@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class MixColorAction extends AbstractController
 {
-    #[Route(path: '/colors', name: 'COLORS_GET', methods: ['GET'])]
+    #[Route(path: '/colors', name: 'COLORS_GET', methods: ['GET', 'POST'])]
     public function __invoke(RequestBody $body): Response
     {
         $memory = [];
