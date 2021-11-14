@@ -71,7 +71,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .landing-page-desktop {
     background-color: var(--desert-storm);
     display: flex;

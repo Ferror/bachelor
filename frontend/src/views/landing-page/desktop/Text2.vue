@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .text-2 {
     align-items: flex-start;
     display: flex;
