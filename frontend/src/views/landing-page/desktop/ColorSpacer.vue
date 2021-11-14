@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .color-spacer {
     background-color: var(--white);
     display: flex;

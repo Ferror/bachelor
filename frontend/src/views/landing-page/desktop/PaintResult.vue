@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .paint-result {
     align-items: flex-start;
     background-color: var(--white);
