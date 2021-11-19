@@ -42,6 +42,7 @@ export default {
 
 .create-paint {
     color: var(--white);
+    display: block;
     font-family: var(--font-family-roboto);
     font-size: var(--font-size-xxl);
     font-weight: 400;

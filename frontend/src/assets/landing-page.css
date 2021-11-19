@@ -46,6 +46,8 @@
     --font-size-xxxxl: 24px;
 
     --font-family-roboto: "Roboto";
+
+    --box-shadow: 0 8px 26px #00000040;
 }
 
 .screen a {

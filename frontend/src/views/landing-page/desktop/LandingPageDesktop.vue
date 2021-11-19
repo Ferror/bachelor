@@ -1,6 +1,6 @@
 <template>
     <div class="landing-page-desktop screen">
-        <navigation />
+        <Navigation />
         <div class="hero">
             <div class="group-37">
                 <div class="t-1 valign-text-middle">{{ t1 }}</div>
@@ -9,18 +9,18 @@
             <img class="group-38" src="@/assets/bucket-drop.svg" />
         </div>
 
-        <color-spacer />
+        <ColorSpacer />
 
         <div class="flex-col">
             <div class="text">
-                <text2 :t2="text2Props.t2" />
+                <Text :t2="text2Props.t2" />
                 <div class="group-39">
                     <img class="group" src="@/assets/social-group.svg" />
                 </div>
             </div>
             <div class="text">
-                <paint-result />
-                <text2 :t2="text22Props.t2" :className="text22Props.className" />
+                <PaintResult />
+                <Text :t2="text22Props.t2" :className="text22Props.className" />
             </div>
         </div>
         <Footer
@@ -37,7 +37,7 @@
 <script>
 import Navigation from "./Navigation";
 import ColorSpacer from "./ColorSpacer";
-import Text2 from "./Text2";
+import Text from "./Text";
 import PaintResult from "./PaintResult";
 import Footer from "./Footer";
 
@@ -45,7 +45,7 @@ export default {
     name: "LandingPageDesktop",
     components: {
         ColorSpacer,
-        Text2,
+        Text,
         Navigation,
         PaintResult,
         Footer,

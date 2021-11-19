@@ -28,7 +28,7 @@ export default {
     align-items: flex-start;
     background-color: var(--desert-storm);
     border-radius: 5px;
-    box-shadow: 0 8px 26px #00000040;
+    box-shadow: var(--box-shadow);
     display: flex;
     height: 510px;
     left: 0;
