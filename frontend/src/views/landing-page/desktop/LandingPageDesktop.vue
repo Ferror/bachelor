@@ -79,21 +79,23 @@ export default {
 
 .hero {
     display: flex;
-    height: 320px;
+    height: 480px;
     width: 960px;
-    margin: 80px auto 0 auto;
+    margin:  0 auto;
 }
 
 .group-37 {
     display: flex;
     flex-direction: column;
-    height: 240px;
+    height: 480px;
     width: 50%;
+    justify-content: center;
 }
 
 .group-38 {
     display: flex;
     width: 50%;
+    height: 480px;
 }
 
 .t-1 {

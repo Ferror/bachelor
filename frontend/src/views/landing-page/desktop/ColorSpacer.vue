@@ -25,7 +25,6 @@ export default {
     background-color: var(--white);
     display: flex;
     height: 160px;
-    margin-top: 80px;
     width: 100%;
 }
 
