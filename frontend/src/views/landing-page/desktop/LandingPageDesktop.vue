@@ -1,27 +1,25 @@
 <template>
     <div class="landing-page-desktop screen">
-        <Nav :paintShop="navProps.paintShop" :stwrzFarb="navProps.stwrzFarb" />
+        <navigation />
         <div class="hero">
             <div class="group-37">
                 <div class="t-1 valign-text-middle">{{ t1 }}</div>
                 <div class="p-1 valign-text-middle">{{ p1 }}</div>
             </div>
-            <img class="group-38" :src="group38" />
+            <img class="group-38" src="@/assets/bucket-drop.svg" />
         </div>
-        <ColorSpacer />
+
+        <color-spacer />
+
         <div class="flex-col">
             <div class="text">
                 <text2 :t2="text2Props.t2" />
-                <div class="group-39"><img class="group" :src="group" /></div>
+                <div class="group-39">
+                    <img class="group" src="@/assets/social-group.svg" />
+                </div>
             </div>
             <div class="text">
-                <div class="group-42">
-                    <paint-result
-                        :yourColorName="paintResultProps.yourColorName"
-                        :line3="paintResultProps.line3"
-                        :rectangle14="paintResultProps.rectangle14"
-                    />
-                </div>
+                <paint-result />
                 <text2 :t2="text22Props.t2" :className="text22Props.className" />
             </div>
         </div>
@@ -37,7 +35,7 @@
 </template>
 
 <script>
-import Nav from "./Nav";
+import Navigation from "./Navigation";
 import ColorSpacer from "./ColorSpacer";
 import Text2 from "./Text2";
 import PaintResult from "./PaintResult";
@@ -47,15 +45,14 @@ export default {
     name: "LandingPageDesktop",
     components: {
         ColorSpacer,
-        Nav,
         Text2,
+        Navigation,
         PaintResult,
         Footer,
     },
     props: [
         "t1",
         "p1",
-        "group38",
         "group",
         "paintShopInc",
         "contactUs",
@@ -82,8 +79,8 @@ export default {
 
 .hero {
     display: flex;
-    height: 314px;
-    width: 900px;
+    height: 320px;
+    width: 960px;
     margin: 80px auto 0 auto;
 }
 
@@ -91,7 +88,12 @@ export default {
     display: flex;
     flex-direction: column;
     height: 240px;
-    width: 484px;
+    width: 50%;
+}
+
+.group-38 {
+    display: flex;
+    width: 50%;
 }
 
 .t-1 {
@@ -109,19 +111,12 @@ export default {
 .p-1 {
     color: var(--black);
     font-family: var(--font-family-roboto);
-    font-size: var(--font-size-xxl2);
+    font-size: var(--font-size-xxl);
     font-weight: 400;
     height: 160px;
     letter-spacing: 2px;
     line-height: 25px;
     width: 480px;
-}
-
-.group-38 {
-    height: 309px;
-    margin-left: 147px;
-    margin-top: 5px;
-    width: 276px;
 }
 
 .flex-col {
@@ -152,13 +147,5 @@ export default {
     margin-left: 162px;
     margin-top: 120px;
     width: 155px;
-}
-
-.group-42 {
-    background-color: var(--desert-storm);
-    display: flex;
-    height: 400px;
-    position: relative;
-    width: 480px;
 }
 </style>

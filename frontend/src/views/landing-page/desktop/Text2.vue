@@ -32,7 +32,7 @@ export default {
     align-items: center;
     background-color: var(--white);
     border-radius: 5px;
-    box-shadow: 0px 8px 25px #00000040;
+    box-shadow: 0 8px 26px #00000040;
     display: flex;
     flex-direction: column;
     min-height: 320px;

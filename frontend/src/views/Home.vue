@@ -1,5 +1,5 @@
 <template>
-    <LandingPage />
+    <Landing-page />
 </template>
 
 <script>

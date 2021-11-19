@@ -1,63 +1,40 @@
 <template>
-    <div class="paint-result border-1px-black">
-        <div class="overlap-group-2">
-            <div class="your-color-name valign-text-middle roboto-bold-black-12px">
-                {{ yourColorName }}
-            </div>
-            <img class="line-3" :src="line3" />
+    <div class="group-42">
+        <div class="paint-result">
+            <svg width="200" height="300" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="0.5" width="199" height="299" rx="4.5" fill="white" stroke="black"/>
+                <path
+                    d="M10 42H190V261.098C190 261.098 188.65 311.889 126.55 255.122C107.911 233.687 100.147 263.591 95.3708 266.726C84.9208 273.586 70.2908 261.867 65.8 269.065C40.6 305.913 10 248.151 10 248.151V42Z"
+                    fill="#CF5555"
+                />
+                <line x1="10" y1="32.5" x2="190" y2="32.5" stroke="black"/>
+            </svg>
         </div>
-        <img class="rectangle-14" :src="rectangle14" />
     </div>
 </template>
 
 <script>
 export default {
     name: "PaintResult",
-    props: ["yourColorName", "line3", "rectangle14"],
 };
 </script>
 
 <style scoped>
-.paint-result {
-    align-items: flex-start;
-    background-color: var(--white);
-    box-shadow: 0 8px 26px #00000040;
+.group-42 {
+    background-color: var(--desert-storm);
     display: flex;
-    flex-direction: column;
-    margin-left: 166px;
-    margin-top: 87px;
-    min-height: 226px;
-    width: 154px;
-}
-
-.overlap-group-2 {
-    height: 31px;
+    height: 400px;
     position: relative;
-    width: 154px;
+    width: 480px;
 }
 
-.your-color-name {
-    height: 31px;
-    left: 0;
-    letter-spacing: 0;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 154px;
+.paint-result {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
-.line-3 {
-    height: 2px;
-    left: 6px;
-    position: absolute;
-    top: 25px;
-    width: 142px;
-}
-
-.rectangle-14 {
-    height: 170px;
-    margin-left: 2px;
-    margin-top: 3px;
-    width: 148px;
+.paint-result svg {
+    margin: 0 auto;
 }
 </style>
