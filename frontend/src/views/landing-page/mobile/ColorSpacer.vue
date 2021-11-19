@@ -25,14 +25,16 @@ export default {
     background-color: var(--white);
     display: flex;
     height: 75px;
-    width: 375px;
+    width: 100%;
+    justify-content: center;
 }
 
 .colors {
     display: flex;
-    margin-left: 7px;
     margin-top: 19px;
-    width: 360px;
+    min-width: 360px;
+    max-width: 500px;
+    justify-content: space-evenly;
 }
 
 .color {
@@ -47,7 +49,6 @@ export default {
     background-color: var(--banana);
     border-radius: 50px;
     height: 22px;
-    margin-left: 16px;
     margin-top: 7px;
     width: 22px;
 }
@@ -56,7 +57,6 @@ export default {
     background-color: var(--carrot-orange);
     border-radius: 50px;
     height: 27px;
-    margin-left: 16px;
     margin-top: 5px;
     width: 27px;
 }
@@ -65,8 +65,7 @@ export default {
     background-color: var(--salmon-pearl);
     border-radius: 50px;
     height: 31px;
-    margin-left: 16px;
-    margin-top: 2.2px;
+    margin-top: 2px;
     width: 31px;
 }
 
@@ -74,7 +73,6 @@ export default {
     background-color: var(--fuchsia-pink);
     border-radius: 50px;
     height: 36px;
-    margin-left: 16px;
     width: 36px;
 }
 
@@ -82,7 +80,6 @@ export default {
     background-color: var(--indigo);
     border-radius: 50px;
     height: 31px;
-    margin-left: 16px;
     margin-top: 2px;
     width: 31px;
 }
@@ -91,7 +88,6 @@ export default {
     background-color: var(--jacarta);
     border-radius: 50px;
     height: 27px;
-    margin-left: 16px;
     margin-top: 5px;
     width: 27px;
 }
@@ -100,7 +96,6 @@ export default {
     background-color: var(--deep-cove);
     border-radius: 50px;
     height: 22px;
-    margin-left: 16px;
     margin-top: 7px;
     width: 22px;
 }
@@ -109,7 +104,6 @@ export default {
     background-color: var(--black-coral-pearl);
     border-radius: 50px;
     height: 18px;
-    margin-left: 16px;
     margin-top: 9px;
     width: 18px;
 }

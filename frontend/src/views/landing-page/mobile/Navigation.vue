@@ -1,8 +1,8 @@
 <template>
     <div class="nav">
-        <div class="overlap-group5">
-            <div class="paint-shop valign-text-middle" v-html="paintshop"></div>
-            <div class="create-paint valign-text-middle">{{ stwrzFarb }}</div>
+        <div class="content">
+            <div class="paint-shop valign-text-middle">PAINT SHOP</div>
+            <a class="create-paint valign-text-middle">{{ translate("Create Paint") }}</a>
         </div>
     </div>
 </template>
@@ -10,22 +10,24 @@
 <script>
 export default {
     name: "Navigation",
-    props: ["paintshop", "stwrzFarb"],
+    methods: {
+        translate: (phrase) => phrase
+    }
 };
 </script>
 
 <style scoped>
 .nav {
+    background-color: var(--teal-blue);
     align-items: flex-start;
     display: flex;
     min-width: 379px;
 }
 
-.overlap-group5 {
-    align-items: flex-start;
-    background-color: var(--teal-blue);
+.content {
     display: flex;
-    min-width: 375px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .paint-shop {
@@ -36,7 +38,7 @@ export default {
     height: 75px;
     letter-spacing: 3px;
     text-align: center;
-    width: 80px;
+    width: 160px;
 }
 
 .create-paint {
@@ -47,8 +49,15 @@ export default {
     font-weight: 400;
     height: 75px;
     letter-spacing: 2px;
-    margin-left: 160px;
     text-align: center;
     width: 135px;
+    line-height: 75px;
+}
+
+.create-paint:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    text-decoration: underline;
+    text-underline-offset: 10px;
 }
 </style>

@@ -9,7 +9,6 @@
             v-if="breakpoints.mobile.matches"
             title1="Pomaluj swój świat!"
             p1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu, adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci vitae."
-            :aHayc8Props="landingPageMobileData.aHayc8Props"
             :textProps="landingPageMobileData.textProps"
             :paintResultProps="landingPageMobileData.paintResultProps"
             :text2Props="landingPageMobileData.text2Props"
@@ -82,11 +81,6 @@ const landingPageDesktopData = {
     text22Props: text22Data,
 };
 
-const aHayc8Data = {
-    paintshop: "PainT<br />Shop",
-    stwrzFarb: "Stwórz Farbę",
-};
-
 const textData = {
     title2: "Share Your Paint Ideas",
 };
@@ -102,9 +96,7 @@ const tnDOwLData = {
 
 const landingPageMobileData = {
     title1: "Pomaluj swój świat!",
-    p1:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu, adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci vitae.",
-    aHayc8Props: aHayc8Data,
+    p1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu, adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci vitae.",
     textProps: textData,
     paintResultProps: paintResultData,
     text2Props: text2Data,

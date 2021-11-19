@@ -1,9 +1,6 @@
 <template>
     <div class="landing-page-mobile screen">
-        <Navigation
-            :paintshop="aHayc8Props.paintshop"
-            :stwrzFarb="aHayc8Props.stwrzFarb"
-        />
+        <Navigation />
         <div class="hero">
             <div class="overlap-group4">
                 <div class="title-1 valign-text-middle roboto-normal-black-20px">{{ title1 }}</div>
@@ -75,7 +72,7 @@ export default {
     display: flex;
     flex-direction: column;
     min-height: 225px;
-    width: 375px;
+    width: 100%;
 }
 
 .title-1 {

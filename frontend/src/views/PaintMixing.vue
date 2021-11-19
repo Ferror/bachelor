@@ -1,5 +1,5 @@
 <template>
-    <choose-base />
+    <ChooseBase />
 </template>
 
 <script>

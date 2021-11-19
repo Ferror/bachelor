@@ -33,7 +33,7 @@ export default {
     display: flex;
     flex-direction: column;
     min-height: 300px;
-    width: 375px;
+    width: 100%;
 }
 
 .title-2 {

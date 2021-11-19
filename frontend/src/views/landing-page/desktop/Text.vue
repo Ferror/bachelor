@@ -51,7 +51,7 @@ export default {
     height: 204px;
     letter-spacing: 1px;
     line-height: 25px;
-    margin-left: 9.17px;
+    margin-left: 9px;
     width: 403px;
 }
 

@@ -47,10 +47,11 @@ export default {
     font-size: var(--font-size-xxl);
     font-weight: 400;
     height: 80px;
-    letter-spacing: 0;
+    letter-spacing: 2px;
     text-align: center;
     width: 160px;
 }
+
 .create-paint:hover {
     cursor: pointer;
     opacity: 0.9;
