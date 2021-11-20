@@ -11,19 +11,21 @@
                         </h2>
                     </div>
                     <div class="modal-close">
-                        <a href="/" style="height: 25px;">
-                            <img
-                                class="symbol-x"
-                                src="@/assets/symbol-x.png"
-                                alt="Close modal"
-                            />
-                        </a>
+                        <router-link to="/">
+                            <a @click="this.$store.commit('PaintMixingRestartFlow')" style="height: 25px;">
+                                <img
+                                    class="symbol-x"
+                                    src="@/assets/symbol-x.png"
+                                    alt="Close modal"
+                                />
+                            </a>
+                        </router-link>
                     </div>
                 </div>
 
                 <div class="modal-content">
-                    <ChooseBase v-if="currentStep === steps.chooseBase" />
-                    <ChooseColor v-if="currentStep === steps.chooseColor" />
+                    <ChooseBase v-if="this.$store.state.paintMixing.state === steps.chooseBase" />
+                    <ChooseColor v-if="this.$store.state.paintMixing.state === steps.chooseColor" />
                 </div>
             </div>
         </div>
@@ -41,6 +43,7 @@ export default {
         ChooseColor,
     },
     props: ["title", "currentStep", "steps"],
+    methods: {}
 };
 </script>
 

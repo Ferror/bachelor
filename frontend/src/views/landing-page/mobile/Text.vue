@@ -1,12 +1,9 @@
 <template>
-    <div :class="[`text`, className || ``]">
+    <div class="text">
         <div class="overlap-group">
-            <div class="title-2 valign-text-middle roboto-normal-black-16px">{{ title2 }}</div>
+            <div class="title-2 valign-text-middle roboto-normal-black-16px">{{ translate(title) }}</div>
             <p class="p-2 valign-text-middle roboto-normal-black-12px">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu,
-                adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci
-                vitae. Purus tellus arcu sem quam suspendisse. Nisi adipiscing interdum vestibulum, tellus non urna. Ornare
-                vitae hendrerit a est massa neque sem rhoncus, scelerisque.
+                {{ translate(content) }}
             </p>
         </div>
     </div>
@@ -15,7 +12,10 @@
 <script>
 export default {
     name: "Text",
-    props: ["title2", "className"],
+    props: ["title", "content"],
+    methods: {
+        translate: (phrase) => phrase
+    }
 };
 </script>
 

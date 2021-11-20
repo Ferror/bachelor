@@ -1,16 +1,16 @@
 <template>
     <div class="footer">
         <div class="overlap-group-1">
-            <div class="title-1-1 valign-text-middle">{{ title }}</div>
+            <div class="title-1-1 valign-text-middle">PAINT SHOP INC.</div>
             <div class="flex-row">
                 <div class="contact-us">
-                    <div class="title-2-1 valign-text-middle roboto-normal-white-16px" >{{ contactUs }}</div>
-                    <div class="contact-us-item valign-text-middle roboto-normal-white-12px" >{{ phone }}</div>
-                    <div class="contact-us-item valign-text-middle roboto-normal-white-12px">{{ text1 }}</div>
+                    <div class="title-2-1 valign-text-middle roboto-normal-white-16px" >{{ translate('Contact Us') }}</div>
+                    <div class="contact-us-item valign-text-middle roboto-normal-white-12px" >{{ translate('+48 333 444 555') }}</div>
+                    <div class="contact-us-item valign-text-middle roboto-normal-white-12px">{{ translate('mail@doamin.com') }}</div>
                 </div>
                 <div class="about-us">
-                    <div class="title-2-2 valign-text-middle roboto-normal-white-16px" >{{ aboutUs }}</div>
-                    <p class="p-2-1 roboto-normal-white-12px">{{ emailGmailCom }}</p>
+                    <div class="title-2-2 valign-text-middle roboto-normal-white-16px" >{{ translate('About Us') }}</div>
+                    <p class="p-2-1 roboto-normal-white-12px">{{ translate('Lorem ipsum') }}</p>
                 </div>
             </div>
         </div>
@@ -20,7 +20,9 @@
 <script>
 export default {
     name: "Footer",
-    props: ["title", "contactUs", "phone", "text1", "aboutUs", "emailGmailCom"],
+    methods: {
+        translate: (phrase) => phrase
+    },
 };
 </script>
 

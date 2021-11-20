@@ -3,26 +3,15 @@
         <Navigation />
         <div class="hero">
             <div class="overlap-group4">
-                <div class="title-1 valign-text-middle roboto-normal-black-20px">{{ title1 }}</div>
-                <p class="p-1 valign-text-middle">{{ p1 }}</p>
+                <div class="title-1 valign-text-middle roboto-normal-black-20px">{{ translate('Title') }}</div>
+                <p class="p-1 valign-text-middle">{{ translate('content') }}</p>
             </div>
         </div>
         <ColorSpacer />
-        <Text :title2="textProps.title2" />
-        <PaintResult
-            :yourColorName="paintResultProps.yourColorName"
-            :line3="paintResultProps.line3"
-            :rectangle14="paintResultProps.rectangle14"
-        />
-        <Text :title2="text2Props.title2" :className="text2Props.className" />
-        <Footer
-            :title="text2Props2.title"
-            :contactUs="text2Props2.contactUs"
-            :phone="text2Props2.phone"
-            :text1="text2Props2.text1"
-            :aboutUs="text2Props2.aboutUs"
-            :emailGmailCom="text2Props2.emailGmailCom"
-        />
+        <Text title="Title" content="Lorem ipsum" />
+        <PaintResult />
+        <Text title="Title" content="Lorem ipsum" />
+        <Footer />
     </div>
 </template>
 
@@ -42,7 +31,10 @@ export default {
         Footer,
         Text,
     },
-    props: ["title1", "p1", "aHayc8Props", "textProps", "paintResultProps", "text2Props", "text2Props2"],
+    props: ["title1", "p1", "textProps", "paintResultProps", "text2Props"],
+    methods: {
+        translate: (phrase) => phrase
+    },
 };
 </script>
 

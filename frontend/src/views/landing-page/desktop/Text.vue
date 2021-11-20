@@ -1,21 +1,19 @@
 <template>
-    <div :class="[`text-2`, className || ``]">
+    <div>
         <div class="overlap-group-1">
-            <div class="t-2 valign-text-middle roboto-normal-black-20px">{{ t2 }}</div>
-            <p class="p-2 valign-text-middle roboto-normal-black-16px">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu,
-                adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci
-                vitae. Purus tellus arcu sem quam suspendisse. Nisi adipiscing interdum vestibulum, tellus non urna. Ornare
-                vitae hendrerit a est massa neque sem rhoncus, scelerisque.
-            </p>
+            <div class="t-2 valign-text-middle roboto-normal-black-20px">{{ translate(title) }}</div>
+            <p class="p-2 valign-text-middle roboto-normal-black-16px">{{ translate(content) }}</p>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Text2",
-    props: ["t2", "className"],
+    name: "Text",
+    props: ["title", "content"],
+    methods: {
+        translate: (phrase) => phrase
+    }
 };
 </script>
 
@@ -53,11 +51,6 @@ export default {
     line-height: 25px;
     margin-left: 9px;
     width: 403px;
-}
-
-.text-2.text-2-1 {
-    margin-left: 40px;
-    margin-top: 40px;
 }
 
 .text-2.text-2-1 .p-2 {

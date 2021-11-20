@@ -3,10 +3,12 @@
         <Navigation />
         <div class="hero">
             <div class="group-37">
-                <h1 class="t-1 valign-text-middle">{{ t1 }}</h1>
-                <p class="p-1 valign-text-middle">{{ p1 }}</p>
+                <h1 class="t-1 valign-text-middle">{{ translate('Paint your world!') }}</h1>
+                <p class="p-1 valign-text-middle">{{ translate('lorem') }}</p>
                 <div style="text-align: center;">
-                    <Button label="Create Color" @click="redirect()" />
+                    <router-link to="/mixing">
+                        <Button label="Create Color" />
+                    </router-link>
                 </div>
             </div>
             <img class="group-38" src="@/assets/bucket-drop.svg" />
@@ -16,26 +18,24 @@
 
         <div class="flex-col">
             <div class="text">
-                <Text :t2="text2Props.t2" />
+                <Text title="Text" content="Lorem ipsum todo" />
                 <div class="group-39">
-                    <img class="group" src="@/assets/social-group.svg" />
+                    <img class="group" src="@/assets/social-group.svg" alt="" />
                 </div>
             </div>
             <div class="text">
                 <PaintResult />
-                <Text :t2="text22Props.t2" :className="text22Props.className" />
+                <Text title="Title" content="Lorem ipsum todo"  />
             </div>
         </div>
-        <Footer
-            :paintShopInc="paintShopInc"
-            :contactUs="contactUs"
-            :aboutUs="aboutUs"
-            :phone="phone"
-            :emailGmailCom="emailGmailCom"
-            :text1="text1"
-        />
+        <Footer />
     </div>
 </template>
+
+<!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu,-->
+<!--adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci-->
+<!--vitae. Purus tellus arcu sem quam suspendisse. Nisi adipiscing interdum vestibulum, tellus non urna. Ornare-->
+<!--vitae hendrerit a est massa neque sem rhoncus, scelerisque.-->
 
 <script>
 import Navigation from "./Navigation";
@@ -53,26 +53,9 @@ export default {
         PaintResult,
         Footer,
     },
-    props: [
-        "t1",
-        "p1",
-        "group",
-        "paintShopInc",
-        "contactUs",
-        "aboutUs",
-        "phone",
-        "emailGmailCom",
-        "text1",
-        "navProps",
-        "text2Props",
-        "paintResultProps",
-        "text22Props",
-    ],
     methods: {
-        redirect: () => {
-            window.location = '/mixing';
-        }
-    }
+        translate: (phrase) => phrase
+    },
 };
 </script>
 

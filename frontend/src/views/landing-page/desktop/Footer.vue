@@ -3,19 +3,19 @@
         <div class="overlap-group">
             <div class="flex-col-1">
                 <div class="paint-shop-inc valign-text-middle roboto-normal-white-24px-2 t-2">
-                    {{ paintShopInc }}
+                    PAINT SHOP INC.
                 </div>
                 <div class="flex-row roboto-normal-white-18px">
-                    <div class="contact-us valign-text-middle">{{ contactUs }}</div>
-                    <div class="about-us valign-text-middle">{{ aboutUs }}</div>
+                    <div class="contact-us valign-text-middle">{{ translate('Contact Us') }}</div>
+                    <div class="about-us valign-text-middle">{{ translate('Abount Us') }}</div>
                 </div>
             </div>
             <div class="flex-row-1 roboto-normal-white-16px">
                 <div class="flex-col-2">
-                    <div class="flex-col-item valign-text-middle">{{ phone }}</div>
-                    <div class="flex-col-item valign-text-middle">{{ emailGmailCom }}</div>
+                    <div class="flex-col-item valign-text-middle">{{ translate('+48 333 444 555') }}</div>
+                    <div class="flex-col-item valign-text-middle">{{ translate('mail@domain.com') }}</div>
                 </div>
-                <p class="text-1">{{ text1 }}</p>
+                <p class="text-1">{{ translate('Lorem ipsum') }}</p>
             </div>
         </div>
     </div>
@@ -24,14 +24,9 @@
 <script>
 export default {
     name: 'Footer',
-    props: [
-        'paintShopInc',
-        'contactUs',
-        'aboutUs',
-        'phone',
-        'emailGmailCom',
-        'text1',
-    ]
+    methods: {
+        translate: (phrase) => phrase
+    },
 }
 </script>
 
