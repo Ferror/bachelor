@@ -1,118 +1,48 @@
 <template>
-    <div class="container-center-horizontal">
-        <div class="choose-base-color screen">
-            <h1 class="title valign-text-middle roboto-normal-white-24px">Paint Shop</h1>
-            <div class="overlap-group4">
-                <modal title="Choose base color" />
-
-                <div class="group-24">
-                    <base-color
-                        class-name="white"
-                        lock=""
-                        caption="White"
-                    />
-                    <base-color
-                        class-name="light-grey"
-                        lock="lock-black"
-                        caption="Light Grey"
-                    />
-                    <base-color
-                        class-name="grey"
-                        lock="lock-white"
-                        caption="Grey"
-                    />
-                    <base-color
-                        class-name="dark-grey"
-                        lock="lock-white"
-                        caption="Dark Grey"
-                    />
-                    <base-color
-                        class-name="black"
-                        lock="lock-white"
-                        caption="Black"
-                    />
-                </div>
-
-                <form action="/mixing" method="get">
-                    <input type="hidden" name="base" value="white">
-                    <input type="submit" value="submit">
-                </form>
-            </div>
-        </div>
+    <div class="bases">
+        <BaseColor
+            class-name="white"
+            lock=""
+            caption="White"
+        />
+        <BaseColor
+            class-name="light-grey"
+            lock="lock-black"
+            caption="Light Grey"
+        />
+        <BaseColor
+            class-name="grey"
+            lock="lock-white"
+            caption="Grey"
+        />
+        <BaseColor
+            class-name="dark-grey"
+            lock="lock-white"
+            caption="Dark Grey"
+        />
+        <BaseColor
+            class-name="black"
+            lock="lock-white"
+            caption="Black"
+        />
     </div>
 </template>
 
 <script>
-import Modal from "@/views/paint-mixing/Modal";
 import BaseColor from "./BaseColor";
 
 export default {
     name: "ChooseBase",
     components: {
         BaseColor,
-        Modal,
     },
 }
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
-
-.screen a {
-    display: contents;
-    text-decoration: none;
-}
-
-.container-center-horizontal {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    pointer-events: none;
-    width: 100%;
-}
-
-.container-center-horizontal > * {
-    flex-shrink: 0;
-    pointer-events: auto;
-}
-
-.valign-text-middle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.choose-base-color {
-    align-items: flex-start;
-    background-color: var(--teal-blue);
-    display: flex;
-    width: 100%;
-    min-height: 900px;
-}
-
-.title {
-    height: 80px;
-    letter-spacing: 4px;
-    text-align: center;
-    width: 240px;
-    position: absolute;
-}
-
-.overlap-group4 {
-    border-radius: 5px;
-    height: 510px;
-    position: relative;
-    width: 750px;
-    margin: 200px auto;
-}
-
-.group-24 {
+.bases {
     display: flex;
     justify-content: space-between;
-    height: 97px;
-    left: 151px;
-    position: absolute;
-    top: 218px;
     width: 460px;
 }
 </style>

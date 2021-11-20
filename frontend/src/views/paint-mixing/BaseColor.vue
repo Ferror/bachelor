@@ -1,6 +1,6 @@
 <template>
     <div :class="[className]">
-        <div class="overlap-group border-1px-black">
+        <div class="base border-1px-black">
             <img v-if="lock" class="lock" alt="Locked base color" :src="require('@/assets/' + lock + '.png')" />
         </div>
         <div class="caption valign-text-middle roboto-normal-black-12px">{{ caption }}</div>
@@ -19,29 +19,38 @@ export default {
 </script>
 
 <style scoped>
-.dark-grey .overlap-group {
+.dark-grey .base {
     background-color: #444444;
 }
 
-.white .overlap-group {
+.white .base {
     background-color: #ffffff;
 }
 
-.grey .overlap-group {
+.white .base:hover {
+    background-color: #eeeeee;
+}
+
+.grey .base {
     background-color: #888888;
 }
 
-.black .overlap-group {
+.black .base {
     background-color: #000000;
 }
 
-.overlap-group {
+.base {
     background-color: #cccccc;
     display: flex;
-    width: 80px;
-    height: 80px;
+    width: 78px;
+    height: 78px;
     justify-content: center;
     align-items: center;
+}
+
+.base:hover {
+    cursor: pointer;
+    opacity: 0.9;
 }
 
 .lock {
@@ -54,6 +63,6 @@ export default {
     letter-spacing: 1px;
     margin-top: 6px;
     text-align: center;
-    width: 75px;
+    width: 80px;
 }
 </style>

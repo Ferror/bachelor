@@ -3,8 +3,11 @@
         <Navigation />
         <div class="hero">
             <div class="group-37">
-                <div class="t-1 valign-text-middle">{{ t1 }}</div>
-                <div class="p-1 valign-text-middle">{{ p1 }}</div>
+                <h1 class="t-1 valign-text-middle">{{ t1 }}</h1>
+                <p class="p-1 valign-text-middle">{{ p1 }}</p>
+                <div style="text-align: center;">
+                    <Button label="Create Color" @click="redirect()" />
+                </div>
             </div>
             <img class="group-38" src="@/assets/bucket-drop.svg" />
         </div>
@@ -65,6 +68,11 @@ export default {
         "paintResultProps",
         "text22Props",
     ],
+    methods: {
+        redirect: () => {
+            window.location = '/mixing';
+        }
+    }
 };
 </script>
 

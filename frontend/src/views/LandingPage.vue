@@ -1,11 +1,11 @@
 <template>
     <div>
-        <landing-page-desktop
+        <LandingPageDesktop
             v-bind="landingPageDesktopData"
             v-if="breakpoints.desktop.matches"
         />
 
-        <landing-page-mobile
+        <LandingPageMobile
             v-if="breakpoints.mobile.matches"
             title1="Pomaluj swój świat!"
             p1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu, adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci vitae."
@@ -104,4 +104,4 @@ const landingPageMobileData = {
 };
 </script>
 
-<style src="@/assets/landing-page.css"></style>
+<style src="@/assets/style.css"></style>

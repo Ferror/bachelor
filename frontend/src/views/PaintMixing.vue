@@ -1,19 +1,34 @@
 <template>
-    <ChooseBase />
+    <Modal
+        title="Choose base color"
+        :currentStep="currentStep"
+        :steps="steps"
+    />
 </template>
 
 <script>
-import ChooseBase from "@/views/paint-mixing/ChooseBase";
-import PaintMixerClient from "@/clients/PaintMixerClient";
+import Modal from "./paint-mixing/Modal";
 
-PaintMixerClient.mix();
+// import PaintMixerClient from "@/clients/PaintMixerClient";
+// PaintMixerClient.mix();
 
 export default {
     name: "PaintMixing",
     components: {
-        ChooseBase,
+        Modal,
     },
+    data: () => {
+        const steps = {
+            chooseBase: "choose-base",
+            chooseColor: "choose-color",
+        };
+
+        return {
+            steps: steps,
+            currentStep: steps.chooseColor,
+        }
+    }
 }
 </script>
 
-<style scoped src="@/assets/paint-mixing.css"></style>
+<style src="@/assets/style.css"></style>
