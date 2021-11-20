@@ -1,14 +1,14 @@
 <template>
     <div class="container-center-horizontal">
-        <div class="wybor-podkladu screen">
+        <div class="choose-base-color screen">
             <h1 class="title valign-text-middle roboto-normal-white-24px">Paint Shop</h1>
             <div class="overlap-group4">
-                <modal title="Wybierz podkład" />
+                <modal title="Choose base color" />
 
                 <div class="group-24">
                     <base-color
                         class-name="white"
-                        lock="lock-black"
+                        lock=""
                         caption="White"
                     />
                     <base-color
@@ -32,6 +32,11 @@
                         caption="Black"
                     />
                 </div>
+
+                <form action="/mixing" method="get">
+                    <input type="hidden" name="base" value="white">
+                    <input type="submit" value="submit">
+                </form>
             </div>
         </div>
     </div>
@@ -77,7 +82,7 @@ export default {
     justify-content: center;
 }
 
-.wybor-podkladu {
+.choose-base-color {
     align-items: flex-start;
     background-color: var(--teal-blue);
     display: flex;
@@ -108,6 +113,6 @@ export default {
     left: 151px;
     position: absolute;
     top: 218px;
-    width: 447px;
+    width: 460px;
 }
 </style>

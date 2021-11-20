@@ -1,7 +1,7 @@
 <template>
     <div :class="[className]">
         <div class="overlap-group border-1px-black">
-            <img class="lock" :src="require('@/assets/' + lock + '.png')" />
+            <img v-if="lock" class="lock" alt="Locked base color" :src="require('@/assets/' + lock + '.png')" />
         </div>
         <div class="caption valign-text-middle roboto-normal-black-12px">{{ caption }}</div>
     </div>
@@ -36,10 +36,12 @@ export default {
 }
 
 .overlap-group {
-    align-items: flex-start;
     background-color: #cccccc;
     display: flex;
-    padding: 20px 26px;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
 }
 
 .lock {

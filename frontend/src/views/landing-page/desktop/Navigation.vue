@@ -2,7 +2,7 @@
     <div class="nav">
         <div class="content">
             <h1 class="paint-shop valign-text-middle roboto-normal-white-24px">PAINT SHOP</h1>
-            <a class="create-paint valign-text-middle">{{ translate("Create Paint") }}</a>
+            <a class="create-paint valign-text-middle" href="/mixing">{{ translate("Create Paint") }}</a>
         </div>
     </div>
 </template>
