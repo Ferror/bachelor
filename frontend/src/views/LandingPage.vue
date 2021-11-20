@@ -22,9 +22,6 @@ export default {
         LandingPageMobile,
         LandingPageDesktop,
     },
-    data: () => {
-        return {};
-    },
     setup: function () {
         // Define your breakpoints with any name
         const breakpoints = useBreakpoints({

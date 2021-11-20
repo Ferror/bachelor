@@ -6,16 +6,16 @@
                     PAINT SHOP INC.
                 </div>
                 <div class="flex-row roboto-normal-white-18px">
-                    <div class="contact-us valign-text-middle">{{ translate('Contact Us') }}</div>
-                    <div class="about-us valign-text-middle">{{ translate('Abount Us') }}</div>
+                    <div class="contact-us valign-text-middle">{{ $t('footer.contactUs') }}</div>
+                    <div class="about-us valign-text-middle">{{ $t('footer.aboutUs') }}</div>
                 </div>
             </div>
             <div class="flex-row-1 roboto-normal-white-16px">
                 <div class="flex-col-2">
-                    <div class="flex-col-item valign-text-middle">{{ translate('+48 333 444 555') }}</div>
-                    <div class="flex-col-item valign-text-middle">{{ translate('mail@domain.com') }}</div>
+                    <div class="flex-col-item valign-text-middle">{{ $t('footer.phone') }}</div>
+                    <div class="flex-col-item valign-text-middle">{{ $t('footer.email') }}</div>
                 </div>
-                <p class="text-1">{{ translate('Lorem ipsum') }}</p>
+                <p class="text-1">{{ $t('footer.aboutUsContent') }}</p>
             </div>
         </div>
     </div>
@@ -24,9 +24,6 @@
 <script>
 export default {
     name: 'Footer',
-    methods: {
-        translate: (phrase) => phrase
-    },
 }
 </script>
 
