@@ -3,11 +3,11 @@
         <Navigation />
         <div class="hero">
             <div class="group-37">
-                <h1 class="t-1 valign-text-middle">{{ translate('Paint your world!') }}</h1>
-                <p class="p-1 valign-text-middle">{{ translate('lorem') }}</p>
-                <div style="text-align: center;">
+                <h1 class="t-1 valign-text-middle">{{ $t('landing.hero.title') }}</h1>
+                <p class="p-1 valign-text-middle">{{ $t('landing.hero.content') }}</p>
+                <div style="text-align: center; margin-top: 25px;">
                     <router-link to="/mixing">
-                        <Button label="Create Color" />
+                        <Button label="Create Color" class="p-button-lg" />
                     </router-link>
                 </div>
             </div>
@@ -17,25 +17,21 @@
         <ColorSpacer />
 
         <div class="flex-col">
-            <div class="text">
-                <Text title="Text" content="Lorem ipsum todo" />
-                <div class="group-39">
+            <div class="text" style="margin: 40px 0;">
+                <Text title="landing.shareSection.title" content="landing.shareSection.content" />
+                <div class="group-39" style="display: flex; justify-content: center; align-items: center;">
                     <img class="group" src="@/assets/social-group.svg" alt="" />
                 </div>
             </div>
-            <div class="text">
+
+            <div class="text" style="margin: 40px 0;">
                 <PaintResult />
-                <Text title="Title" content="Lorem ipsum todo"  />
+                <Text title="landing.paintSection.title" content="landing.paintSection.content"  />
             </div>
         </div>
         <Footer />
     </div>
 </template>
-
-<!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu,-->
-<!--adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci-->
-<!--vitae. Purus tellus arcu sem quam suspendisse. Nisi adipiscing interdum vestibulum, tellus non urna. Ornare-->
-<!--vitae hendrerit a est massa neque sem rhoncus, scelerisque.-->
 
 <script>
 import Navigation from "./Navigation";
@@ -52,9 +48,6 @@ export default {
         Navigation,
         PaintResult,
         Footer,
-    },
-    methods: {
-        translate: (phrase) => phrase
     },
 };
 </script>
@@ -128,17 +121,13 @@ export default {
 }
 
 .group-39 {
-    background-color: var(--desert-storm);
     display: flex;
     height: 400px;
-    margin-left: 36px;
     width: 480px;
 }
 
 .group {
     height: 176px;
-    margin-left: 162px;
-    margin-top: 120px;
     width: 155px;
 }
 </style>

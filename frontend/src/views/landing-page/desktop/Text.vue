@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div style="display: flex; justify-content: center; padding: 20px;">
         <div class="overlap-group-1">
-            <div class="t-2 valign-text-middle roboto-normal-black-20px">{{ translate(title) }}</div>
-            <p class="p-2 valign-text-middle roboto-normal-black-16px">{{ translate(content) }}</p>
+            <div class="t-2 valign-text-middle roboto-normal-black-20px">{{ $t(title) }}</div>
+            <p class="p-2 valign-text-middle roboto-normal-black-16px">{{ $t(content) }}</p>
         </div>
     </div>
 </template>
@@ -11,9 +11,6 @@
 export default {
     name: "Text",
     props: ["title", "content"],
-    methods: {
-        translate: (phrase) => phrase
-    }
 };
 </script>
 

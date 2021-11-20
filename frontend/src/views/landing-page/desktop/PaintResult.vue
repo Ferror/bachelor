@@ -21,7 +21,6 @@ export default {
 
 <style scoped>
 .group-42 {
-    background-color: var(--desert-storm);
     display: flex;
     height: 400px;
     position: relative;
