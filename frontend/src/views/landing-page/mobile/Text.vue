@@ -1,10 +1,8 @@
 <template>
     <div class="text">
         <div class="overlap-group">
-            <div class="title-2 valign-text-middle roboto-normal-black-16px">{{ translate(title) }}</div>
-            <p class="p-2 valign-text-middle roboto-normal-black-12px">
-                {{ translate(content) }}
-            </p>
+            <div class="title-2 valign-text-middle roboto-normal-black-16px">{{ $t(title) }}</div>
+            <p class="p-2 valign-text-middle roboto-normal-black-12px">{{ $t(content) }}</p>
         </div>
     </div>
 </template>
@@ -13,9 +11,6 @@
 export default {
     name: "Text",
     props: ["title", "content"],
-    methods: {
-        translate: (phrase) => phrase
-    }
 };
 </script>
 

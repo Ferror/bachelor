@@ -15,14 +15,6 @@ export default {
 </script>
 
 <style scoped>
-.text-2 {
-    align-items: flex-start;
-    display: flex;
-    height: 320px;
-    margin-top: 36px;
-    min-width: 444px;
-}
-
 .overlap-group-1 {
     align-items: center;
     background-color: var(--white);

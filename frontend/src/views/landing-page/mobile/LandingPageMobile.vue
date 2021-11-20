@@ -3,14 +3,14 @@
         <Navigation />
         <div class="hero">
             <div class="overlap-group4">
-                <div class="title-1 valign-text-middle roboto-normal-black-20px">{{ translate('Title') }}</div>
-                <p class="p-1 valign-text-middle">{{ translate('content') }}</p>
+                <h1 class="title-1 valign-text-middle roboto-normal-black-20px">{{ $t('landing.hero.title') }}</h1>
+                <p class="p-1 valign-text-middle">{{ $t('landing.hero.content') }}</p>
             </div>
         </div>
         <ColorSpacer />
-        <Text title="Title" content="Lorem ipsum" />
+        <Text title="landing.shareSection.title" content="landing.shareSection.content" />
         <PaintResult />
-        <Text title="Title" content="Lorem ipsum" />
+        <Text title="landing.paintSection.title" content="landing.paintSection.content" />
         <Footer />
     </div>
 </template>
