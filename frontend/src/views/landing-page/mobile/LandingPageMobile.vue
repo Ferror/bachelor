@@ -31,10 +31,6 @@ export default {
         Footer,
         Text,
     },
-    props: ["title1", "p1", "textProps", "paintResultProps", "text2Props"],
-    methods: {
-        translate: (phrase) => phrase
-    },
 };
 </script>
 

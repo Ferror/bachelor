@@ -45,10 +45,6 @@ export default {
     width: 345px;
 }
 
-.text.text-1 {
-    margin-top: 37px;
-}
-
 .text.text-1 .p-2 {
     height: 187px;
 }
