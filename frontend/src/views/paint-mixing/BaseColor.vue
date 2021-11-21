@@ -1,7 +1,12 @@
 <template>
     <div :class="[className]">
         <div class="base border-1px-black">
-            <img v-if="lock" class="lock" alt="Locked base color" :src="require('@/assets/' + lock + '.png')" />
+            <img
+                v-if="lock"
+                class="lock"
+                alt="Locked base color"
+                :src="require('@/assets/' + lock + '.png')"
+            />
         </div>
         <div class="caption valign-text-middle roboto-normal-black-12px">{{ caption }}</div>
     </div>

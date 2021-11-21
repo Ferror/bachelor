@@ -93,7 +93,6 @@ export default {
                 colors.push({r, g, b});
             });
 
-
             try {
                 const response = await client.mix(colors);
 
