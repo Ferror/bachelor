@@ -39,7 +39,6 @@ export default {
 }
 
 .p-2 {
-    height: 202px;
     letter-spacing: 1px;
     line-height: 20px;
     width: 345px;

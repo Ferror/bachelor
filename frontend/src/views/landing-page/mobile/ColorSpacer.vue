@@ -31,7 +31,7 @@ export default {
 
 .colors {
     display: flex;
-    margin-top: 19px;
+    margin: 15px 0;
     min-width: 360px;
     max-width: 500px;
     justify-content: space-evenly;

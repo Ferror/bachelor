@@ -5,6 +5,9 @@
             <div class="overlap-group4">
                 <h1 class="title-1 valign-text-middle roboto-normal-black-20px">{{ $t('landing.hero.title') }}</h1>
                 <p class="p-1 valign-text-middle">{{ $t('landing.hero.content') }}</p>
+                <router-link to="/mixing">
+                    <Button label="Create Color" class="p-button" />
+                </router-link>
             </div>
         </div>
         <ColorSpacer />
@@ -50,7 +53,6 @@ export default {
 .hero {
     align-items: flex-start;
     display: flex;
-    height: 225px;
     min-width: 379px;
 }
 
@@ -61,6 +63,7 @@ export default {
     flex-direction: column;
     min-height: 225px;
     width: 100%;
+    margin: 20px 0;
 }
 
 .title-1 {
