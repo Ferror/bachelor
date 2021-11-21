@@ -66,7 +66,7 @@ export default {
 .caption {
     height: 15px;
     letter-spacing: 1px;
-    margin-top: 6px;
+    margin-top: 5px;
     text-align: center;
     width: 80px;
 }

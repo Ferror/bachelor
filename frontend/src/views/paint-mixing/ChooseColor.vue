@@ -14,15 +14,15 @@
 
             <Plus />
 
-            <ColorPicker />
+            <ColorPicker :removable="false" />
 
             <Plus v-if="activeSecondColor" />
 
-            <ColorPicker v-if="activeSecondColor" />
+            <ColorPicker v-if="activeSecondColor" :removable="true" />
 
             <Plus v-if="activeThirdColor" />
 
-            <ColorPicker v-if="activeThirdColor" />
+            <ColorPicker v-if="activeThirdColor" :removable="true" />
         </div>
 
         <div style="margin-top: 30px;display: flex;justify-content: space-evenly;">
