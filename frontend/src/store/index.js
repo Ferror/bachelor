@@ -12,6 +12,9 @@ export default createStore({
             steps: steps,
             state: steps.chooseColor
         },
+        configuration: {
+            colors: [],
+        },
     },
     mutations: {
         PaintMixingNextStep: (state, step) => {
@@ -21,6 +24,10 @@ export default createStore({
         PaintMixingRestartFlow: (state) => {
             console.log('PaintMixingRestartFlow');
             state.paintMixing.state = steps.chooseBase;
+        },
+        PaintMixingAddColor: (state, color) => {
+            console.log('PaintMixingAddColor');
+            state.configuration.colors.push(color);
         }
     },
     actions: {

@@ -1,26 +1,99 @@
 <template>
-    <div class="choose-color">
-        <BaseColor
-            class-name="light-grey"
-            lock=""
-            caption="Light Grey"
-        />
+    <MixingLoader v-if="loader" />
 
-        <div>
-            <img src="@/assets/plus.svg" alt="plus">
+    <MixingSuccess v-if="mixSuccess" />
+
+    <div style="width: 100%;" v-if="loader === false && mixSuccess === false">
+        <div class="choose-color">
+            <BaseColor
+                class-name="light-grey"
+                lock=""
+                caption="Light Grey"
+            />
+
+            <div>
+                <img src="@/assets/plus.svg" alt="plus">
+            </div>
+
+            <ColorPicker />
+
+            <div v-if="activeSecondColor">
+                <img src="@/assets/plus.svg" alt="plus">
+            </div>
+
+            <ColorPicker v-if="activeSecondColor" />
+
+            <div v-if="activeThirdColor">
+                <img src="@/assets/plus.svg" alt="plus">
+            </div>
+
+            <div v-if="activeThirdColor">
+                <ColorPicker />
+            </div>
         </div>
 
-        <Button label="Choose Color" />
+        <div style="margin-top: 30px;display: flex;justify-content: space-evenly;">
+            <Button label="Mix" @click="mixColors()" />
+            <Button label="Add Color" id="add-color-button" @click="addColorPicker()" />
+        </div>
     </div>
 </template>
 
 <script>
 import BaseColor from "./BaseColor";
+import ColorPicker from "./ColorPicker";
+import MixingLoader from "./MixingLoader";
+import MixingSuccess from "./MixingSuccess";
 
 export default {
     name: "ChooseColor",
     components: {
-        BaseColor
+        MixingSuccess,
+        MixingLoader,
+        BaseColor,
+        ColorPicker,
+    },
+    data: () => {
+        return {
+            activeSecondColor: false,
+            activeThirdColor: false,
+            loader: false,
+            mixSuccess: false,
+        };
+    },
+    methods: {
+        addColorPicker: function () {
+            if (this.activeThirdColor) {
+                document.getElementById("add-color-button").style.display = 'none';
+                // do nothing
+                return;
+            }
+
+            if (this.activeSecondColor) {
+                //add third
+                this.activeThirdColor = true;
+                document.getElementById("add-color-button").style.display = 'none';
+
+                return;
+            }
+
+            this.activeSecondColor = true;
+        },
+        mixColors: async function () {
+            this.loader = true;
+
+            const response = await this.sendBackendRequest();
+
+            this.loader = !response
+            this.mixSuccess = response;
+        },
+        sendBackendRequest: function () {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(true);
+                }, 2500);
+            });
+        }
     },
 };
 </script>
@@ -32,5 +105,4 @@ export default {
     justify-content: space-around;
     align-items: center;
 }
-
 </style>

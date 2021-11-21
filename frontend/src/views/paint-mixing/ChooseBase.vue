@@ -4,6 +4,7 @@
             class-name="white"
             lock=""
             caption="White"
+            @click="addBase(colors.white)"
         />
         <BaseColor
             class-name="light-grey"
@@ -35,6 +36,23 @@ export default {
     name: "ChooseBase",
     components: {
         BaseColor,
+    },
+    data: function () {
+        return {
+            colors: {
+                white: {
+                    r: 255,
+                    g: 255,
+                    b: 255,
+                },
+            },
+        };
+    },
+    methods: {
+        addBase: function (color) {
+            this.$store.commit('PaintMixingNextStep', this.$store.state.paintMixing.steps.chooseColor);
+            this.$store.commit('PaintMixingAddColor', color);
+        }
     },
 }
 </script>
