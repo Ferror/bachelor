@@ -6,9 +6,9 @@
     <div style="width: 100%;" v-if="loader === false && mixSuccess === false">
         <div class="choose-color">
             <BaseColor
-                class-name="light-grey"
-                lock=""
-                caption="Light Grey"
+                :class-name="base.name"
+                :lock="base.lock"
+                :caption="base.caption"
             />
 
             <div>
@@ -53,8 +53,9 @@ export default {
         BaseColor,
         ColorPicker,
     },
-    data: () => {
+    data: function () {
         return {
+            base: this.$store.state.configuration.base,
             activeSecondColor: false,
             activeThirdColor: false,
             loader: false,

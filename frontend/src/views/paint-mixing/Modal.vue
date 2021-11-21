@@ -24,8 +24,8 @@
                 </div>
 
                 <div class="modal-content">
-                    <ChooseBase v-if="this.$store.state.paintMixing.state === steps.chooseBase" />
-                    <ChooseColor v-if="this.$store.state.paintMixing.state === steps.chooseColor" />
+                    <ChooseBase v-if="currentStep.name === 'choose-base'" />
+                    <ChooseColor v-if="currentStep.name === 'choose-color'" />
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@ export default {
         ChooseColor,
     },
     props: ["title", "currentStep", "steps"],
-    methods: {}
+    methods: {},
 };
 </script>
 

@@ -1,13 +1,11 @@
 <template>
-    <div>
-        <LandingPageDesktop
-            v-if="breakpoints.desktop.matches"
-        />
+    <LandingPageDesktop
+        v-if="breakpoints.desktop.matches"
+    />
 
-        <LandingPageMobile
-            v-if="breakpoints.mobile.matches"
-        />
-    </div>
+    <LandingPageMobile
+        v-if="breakpoints.mobile.matches"
+    />
 </template>
 
 <script>
@@ -22,30 +20,17 @@ export default {
         LandingPageMobile,
         LandingPageDesktop,
     },
-    setup: function () {
-        // Define your breakpoints with any name
+    data: function () {
         const breakpoints = useBreakpoints({
-            mobile: 959, // max-width: 600px
-            desktop: [960] // min-width: 601px
+            mobile: 959, // max-width: 959px
+            desktop: [960] // min-width: 960px
         });
 
         return {
-            // If you want to use different key, feel free do do so, e.g.:
-            // mediaqueries: breakpoints
-            // and then use mediaqueries.desktop.matches etc.
             breakpoints
         };
     },
 };
-
-// const FooterContent = {
-//     title: "Paint Shop inc.",
-//     contactUs: "Contact Us",
-//     phone: "+48 333 444 555",
-//     text1: "email@gmail.com",
-//     aboutUs: "About US",
-//     emailGmailCom: "Paint Shop inc. was created to enable your creativity and freedom of choosing paint colors.",
-// };
 </script>
 
 <style src="@/assets/style.css"></style>
