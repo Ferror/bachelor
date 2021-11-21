@@ -31,7 +31,8 @@ export default {
 <style scoped>
 .bases {
     display: flex;
-    justify-content: space-between;
-    width: 460px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 70%;
 }
 </style>

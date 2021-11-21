@@ -4,7 +4,9 @@
     <MixingSuccess v-if="mixSuccess" />
     <MixingFail v-if="mixFail" />
 
-    <div style="width: 100%;" v-if="loader === false && mixSuccess === false && mixFail === false">
+    <Result v-if="mixResult" :color="color" />
+
+    <div style="width: 100%;" v-if="loader === false && mixSuccess === false && mixFail === false && mixResult === false">
         <div class="choose-color">
             <BaseColor
                 :class-name="base.name"
@@ -40,10 +42,12 @@ import MixingLoader from "./MixingLoader";
 import MixingSuccess from "./MixingSuccess";
 import Plus from "./Plus";
 import client from "@/clients/PaintMixerClient";
+import Result from "./Result";
 
 export default {
     name: "ChooseColor",
     components: {
+        Result,
         MixingSuccess,
         MixingLoader,
         MixingFail,
@@ -59,6 +63,8 @@ export default {
             loader: false,
             mixSuccess: false,
             mixFail: false,
+            mixResult: false,
+            color: null,
         };
     },
     methods: {
@@ -96,11 +102,21 @@ export default {
             try {
                 const response = await client.mix(colors);
 
-                console.log(response);
+                console.log(response.data.model);
+                const color = response.data.model;
+
+                this.color = {
+                    r: color.r * 255,
+                    g: color.g * 255,
+                    b: color.b * 255,
+                };
 
                 this.loader = false;
                 this.mixSuccess = true;
                 this.mixFail = false;
+
+                this.mixResult = true;
+                this.mixSuccess = false;
             } catch (error) {
                 console.log('error', error);
                 this.loader = false;
