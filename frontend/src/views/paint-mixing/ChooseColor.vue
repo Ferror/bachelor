@@ -2,8 +2,9 @@
     <MixingLoader v-if="loader" />
 
     <MixingSuccess v-if="mixSuccess" />
+    <MixingFail v-if="mixFail" />
 
-    <div style="width: 100%;" v-if="loader === false && mixSuccess === false">
+    <div style="width: 100%;" v-if="loader === false && mixSuccess === false && mixFail === false">
         <div class="choose-color">
             <BaseColor
                 :class-name="base.name"
@@ -11,25 +12,17 @@
                 :caption="base.caption"
             />
 
-            <div>
-                <img src="@/assets/plus.svg" alt="plus">
-            </div>
+            <Plus />
 
             <ColorPicker />
 
-            <div v-if="activeSecondColor">
-                <img src="@/assets/plus.svg" alt="plus">
-            </div>
+            <Plus v-if="activeSecondColor" />
 
             <ColorPicker v-if="activeSecondColor" />
 
-            <div v-if="activeThirdColor">
-                <img src="@/assets/plus.svg" alt="plus">
-            </div>
+            <Plus v-if="activeThirdColor" />
 
-            <div v-if="activeThirdColor">
-                <ColorPicker />
-            </div>
+            <ColorPicker v-if="activeThirdColor" />
         </div>
 
         <div style="margin-top: 30px;display: flex;justify-content: space-evenly;">
@@ -42,16 +35,21 @@
 <script>
 import BaseColor from "./BaseColor";
 import ColorPicker from "./ColorPicker";
+import MixingFail from "./MixingFail";
 import MixingLoader from "./MixingLoader";
 import MixingSuccess from "./MixingSuccess";
+import Plus from "./Plus";
+import client from "@/clients/PaintMixerClient";
 
 export default {
     name: "ChooseColor",
     components: {
         MixingSuccess,
         MixingLoader,
+        MixingFail,
         BaseColor,
         ColorPicker,
+        Plus,
     },
     data: function () {
         return {
@@ -60,6 +58,7 @@ export default {
             activeThirdColor: false,
             loader: false,
             mixSuccess: false,
+            mixFail: false,
         };
     },
     methods: {
@@ -83,18 +82,33 @@ export default {
         mixColors: async function () {
             this.loader = true;
 
-            const response = await this.sendBackendRequest();
+            const colors = [];
 
-            this.loader = !response
-            this.mixSuccess = response;
-        },
-        sendBackendRequest: function () {
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    resolve(true);
-                }, 2500);
+            document.querySelectorAll('.color-picker').forEach((picker) => {
+                const hex = picker.value;
+                const r = parseInt(hex.slice(1, 3), 16);
+                const g = parseInt(hex.slice(3, 5), 16);
+                const b = parseInt(hex.slice(5, 7), 16);
+
+                colors.push({r, g, b});
             });
-        }
+
+
+            try {
+                const response = await client.mix(colors);
+
+                console.log(response);
+
+                this.loader = false;
+                this.mixSuccess = true;
+                this.mixFail = false;
+            } catch (error) {
+                console.log('error', error);
+                this.loader = false;
+                this.mixSuccess = false;
+                this.mixFail = true;
+            }
+        },
     },
 };
 </script>

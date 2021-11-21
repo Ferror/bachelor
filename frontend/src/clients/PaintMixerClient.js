@@ -5,8 +5,10 @@ const client = axios.create({
 })
 
 export default {
-    mix: () => {
-        client
+    mix: async function (colors) {
+        console.log('Send Request', colors);
+
+        return client
             .post('/paints', {
                 colors: [
                     {
@@ -26,12 +28,6 @@ export default {
                         volume: 1
                     }
                 ]
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
             })
     },
     mixPaint: (base, paint) => {

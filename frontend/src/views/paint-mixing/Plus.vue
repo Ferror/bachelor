@@ -1,15 +1,14 @@
 <template>
     <div>
-        <img class="bucket" src="@/assets/bucket-fail.svg" alt="Bucket loader">
+        <img src="@/assets/plus.svg" alt="plus">
     </div>
 </template>
 
 <script>
 export default {
-    name: "MixingFail"
+    name: "Plus"
 }
 </script>
 
 <style scoped>
-
 </style>
