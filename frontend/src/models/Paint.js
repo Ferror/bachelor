@@ -1,13 +1,11 @@
-// class Paint
-// {
-//     r;
-//     g;
-//     b;
-//
-//     constructor(r, g, b)
-//     {
-//         this.r = r;
-//         this.g = g;
-//         this.b = b;
-//     }
-// }
+export default class Paint
+{
+    model;
+    volume;
+
+    constructor(model, volume)
+    {
+        this.model = model;
+        this.volume = volume;
+    }
+}

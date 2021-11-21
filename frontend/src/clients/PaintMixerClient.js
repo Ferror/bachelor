@@ -6,28 +6,13 @@ const client = axios.create({
 
 export default {
     mix: async function (colors) {
-        console.log('Send Request', colors);
+        if (colors.length < 2) {
+            throw new Error("You must provide at least two colors to mix");
+        }
 
         return client
             .post('/paints', {
-                colors: [
-                    {
-                        model: {
-                            r: 1,
-                            g: 1,
-                            b: 1,
-                        },
-                        volume: 1
-                    },
-                    {
-                        model: {
-                            r: 1,
-                            g: 1,
-                            b: 1,
-                        },
-                        volume: 1
-                    }
-                ]
+                colors: colors,
             })
     },
     mixPaint: (base, paint) => {

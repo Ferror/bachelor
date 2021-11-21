@@ -43,6 +43,7 @@ import MixingSuccess from "./MixingSuccess";
 import Plus from "./Plus";
 import client from "@/clients/PaintMixerClient";
 import Result from "./Result";
+import Paint from "@/models/Paint"
 
 export default {
     name: "ChooseColor",
@@ -92,28 +93,40 @@ export default {
 
             document.querySelectorAll('.color-picker').forEach((picker) => {
                 const hex = picker.value;
-                const r = parseInt(hex.slice(1, 3), 16);
-                const g = parseInt(hex.slice(3, 5), 16);
-                const b = parseInt(hex.slice(5, 7), 16);
+                const r = parseInt(hex.slice(1, 3), 16) / 255;
+                const g = parseInt(hex.slice(3, 5), 16) / 255;
+                const b = parseInt(hex.slice(5, 7), 16) / 255;
 
-                colors.push({r, g, b});
+                colors.push(new Paint({r, g, b}, 1));
             });
 
+            const base = this.$store.state.configuration.base.model;
+
+            colors.push(new Paint({
+                r: base.r / 255,
+                g: base.g / 255,
+                b: base.b / 255,
+            }, 1));
+
             try {
-                const response = await client.mix(colors);
+                const response = await this.sleep(function () {
+                    return client.mix(colors);
+                });
 
                 console.log(response.data.model);
                 const color = response.data.model;
 
-                this.color = {
-                    r: color.r * 255,
-                    g: color.g * 255,
-                    b: color.b * 255,
-                };
-
                 this.loader = false;
                 this.mixSuccess = true;
                 this.mixFail = false;
+
+                this.color = await this.sleep(function () {
+                    return {
+                        r: color.r * 255,
+                        g: color.g * 255,
+                        b: color.b * 255,
+                    };
+                })
 
                 this.mixResult = true;
                 this.mixSuccess = false;
@@ -123,6 +136,13 @@ export default {
                 this.mixSuccess = false;
                 this.mixFail = true;
             }
+        },
+        sleep: async function (callback) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(callback());
+                }, 1000);
+            });
         },
     },
 };
