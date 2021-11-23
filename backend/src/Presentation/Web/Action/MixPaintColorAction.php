@@ -40,7 +40,6 @@ final class MixPaintColorAction extends AbstractController
         $last = \array_pop($memory);
 
         foreach ($memory as $color) {
-//            dump($last->jsonSerialize());
             $last = $last->mix($color);
         }
 
