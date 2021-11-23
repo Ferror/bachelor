@@ -115,8 +115,7 @@ export default {
                     return client.mixColors(colors);
                 });
 
-                console.log(response.data.model);
-                const color = response.data.model;
+                const color = response.data;
 
                 this.loader = false;
                 this.mixSuccess = true;
@@ -133,7 +132,6 @@ export default {
                 this.mixResult = true;
                 this.mixSuccess = false;
             } catch (error) {
-                console.log('error', error);
                 this.loader = false;
                 this.mixSuccess = false;
                 this.mixFail = true;
