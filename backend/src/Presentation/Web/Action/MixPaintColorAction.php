@@ -24,27 +24,29 @@ final class MixPaintColorAction extends AbstractController
     #[Route(path: '/paints', name: 'PAINTS', methods: ['GET', 'POST'])]
     public function __invoke(RequestBody $body): Response
     {
-        $colors = $body->getBody()['colors'];
-        $base = $this->paintFactory->fromRedGreenBlue(
-            new RedGreenBlueColor(
-                $colors[0]['model']['r'],
-                $colors[0]['model']['g'],
-                $colors[0]['model']['b'],
-            ),
-            new Volume($colors[0]['volume'])
-        );
-        $paint = $this->paintFactory->fromRedGreenBlue(
-            new RedGreenBlueColor(
-                $colors[1]['model']['r'],
-                $colors[1]['model']['g'],
-                $colors[1]['model']['b'],
-            ),
-            new Volume($colors[1]['volume'])
-        );
-        $result = $base->mix($paint);
+        $memory = [];
+
+        foreach ($body->getBody()['paints'] as $paint) {
+            $memory[] = $this->paintFactory->fromRedGreenBlue(
+                new RedGreenBlueColor(
+                    $paint['model']['r'],
+                    $paint['model']['g'],
+                    $paint['model']['b'],
+                ),
+                new Volume($paint['volume'])
+            );
+        }
+
+        $last = \array_pop($memory);
+
+        foreach ($memory as $color) {
+//            dump($last->jsonSerialize());
+            $last = $last->mix($color);
+        }
+
         $presenter = PaintPresenter::fromRedGreenBlueColor(
-            $result->getColor()->createPrintable(),
-            $result->getVolume()
+            $last->getColor()->createPrintable(),
+            $last->getVolume()
         );
 
         return new JsonResponse($presenter->jsonSerialize(), 200);

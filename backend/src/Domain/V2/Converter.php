@@ -8,11 +8,11 @@ use App\Domain\V2\Color\RedYellowBlueColor;
 
 final class Converter
 {
-    public static function toRedYellowBlue(float $r, float $g, float $b): RedYellowBlueColor
+    public static function toRedYellowBlue(RedGreenBlueColor $model): RedYellowBlueColor
     {
-        $R_rgb = $r;
-        $G_rgb = $g;
-        $B_rgb = $b;
+        $R_rgb = $model->getRed();
+        $G_rgb = $model->getGreen();
+        $B_rgb = $model->getBlue();
 
         $i_w = min($R_rgb, $G_rgb, $B_rgb);
 
@@ -48,11 +48,11 @@ final class Converter
         return new RedYellowBlueColor($r_ryb, $y_ryb, $b_ryb);
     }
 
-    public static function toRedGreenBlue(float $r, float $y, float $b): RedGreenBlueColor
+    public static function toRedGreenBlue(RedYellowBlueColor $model): RedGreenBlueColor
     {
-        $R_ryb = $r;
-        $Y_ryb = $y;
-        $B_ryb = $b;
+        $R_ryb = $model->getRed();
+        $Y_ryb = $model->getYellow();
+        $B_ryb = $model->getBlue();
 
         $i_b = min($R_ryb, $Y_ryb, $B_ryb);
 

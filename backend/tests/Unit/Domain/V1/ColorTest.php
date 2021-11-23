@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Unit\Domain;
+namespace App\Unit\Domain\V1;
 
 use App\Domain\V1\Color;
 use Generator;
@@ -14,7 +14,10 @@ final class ColorTest extends TestCase
      */
     public function testItIsMixesColors(Color $first, Color $second, Color $result, string $message): void
     {
+        //Test A + B = C
         self::assertEquals($result->jsonSerialize(), $first->mix($second)->jsonSerialize(), $message);
+        //Test B + A = C
+        self::assertEquals($result->jsonSerialize(), $second->mix($first)->jsonSerialize(), $message);
     }
 
     public function mixes(): Generator
@@ -26,9 +29,9 @@ final class ColorTest extends TestCase
             'Black + Black = Black',
         ];
         yield [
-            new Color(0.0, 0.0, 0.0),
-            new Color(0.0, 0.0, 0.0),
-            new Color(0.0, 0.0, 0.0),
+            new Color(1.0, 1.0, 1.0),
+            new Color(1.0, 1.0, 1.0),
+            new Color(1.0, 1.0, 1.0),
             'White + White = White',
         ];
         yield [
