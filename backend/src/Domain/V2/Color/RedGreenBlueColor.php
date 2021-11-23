@@ -22,7 +22,7 @@ final class RedGreenBlueColor
 
     public function createMixable(): Mixable
     {
-        return Converter::toRedYellowBlue($this->red, $this->green, $this->blue);
+        return Converter::toRedYellowBlue($this);
     }
 
     public function getRed(): float
@@ -38,5 +38,16 @@ final class RedGreenBlueColor
     public function getBlue(): float
     {
         return $this->blue;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'model' => [
+                'r' => $this->red,
+                'g' => $this->green,
+                'b' => $this->blue,
+            ],
+        ];
     }
 }

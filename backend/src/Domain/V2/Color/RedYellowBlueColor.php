@@ -5,8 +5,9 @@ namespace App\Domain\V2\Color;
 
 use App\Domain\V2\Converter;
 use App\Domain\V2\Mixable;
+use JsonSerializable;
 
-final class RedYellowBlueColor implements Mixable
+final class RedYellowBlueColor implements Mixable, JsonSerializable
 {
     public function __construct(
         private float $red,
@@ -36,15 +37,48 @@ final class RedYellowBlueColor implements Mixable
             return $this;
         }
 
+        //try normalization
+        $r = $this->red + $mixable->red;
+        $y = $this->yellow + $mixable->yellow;
+        $b = $this->blue + $mixable->blue;
+
+        $n = max($r, $y, $b);
+
         return new self(
-            ($this->red + $mixable->red),
-            ($this->yellow + $mixable->yellow),
-            ($this->blue + $mixable->blue),
+            $r / $n,
+            $y / $n,
+            $b / $n,
         );
     }
 
     public function createPrintable(): RedGreenBlueColor
     {
-        return Converter::toRedGreenBlue($this->red, $this->yellow, $this->blue);
+        return Converter::toRedGreenBlue($this);
+    }
+
+    public function getRed(): float
+    {
+        return $this->red;
+    }
+
+    public function getYellow(): float
+    {
+        return $this->yellow;
+    }
+
+    public function getBlue(): float
+    {
+        return $this->blue;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'model' => [
+                'r' => $this->red,
+                'y' => $this->yellow,
+                'b' => $this->blue,
+            ],
+        ];
     }
 }

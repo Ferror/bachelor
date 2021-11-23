@@ -3,7 +3,7 @@
         {
             "name": "Blue + Yellow = Green",
             "request": {
-                "colors": [
+                "paints": [
                     {
                         "model": {
                             "r": 1.0,
@@ -34,7 +34,7 @@
         {
             "name": "Red + Yellow = Orange",
             "request": {
-                "colors": [
+                "paints": [
                     {
                         "model": {
                             "r": 1.0,
@@ -60,6 +60,45 @@
                     "b": 0
                 },
                 "volume": 2
+            }
+        },
+        {
+            "name": "Red + Green + Blue = Black-ish",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 1
+                    },
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 1.0,
+                            "b": 0.0
+                        },
+                        "volume": 1.0
+                    },
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 0.0,
+                            "b": 1.0
+                        },
+                        "volume": 1.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 0.0,
+                    "g": 0.0,
+                    "b": 0.5
+                },
+                "volume": 3.0
             }
         }
     ]

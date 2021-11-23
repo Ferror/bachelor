@@ -43,7 +43,7 @@ import MixingSuccess from "./MixingSuccess";
 import Plus from "./Plus";
 import client from "@/clients/PaintMixerClient";
 import Result from "./Result";
-import Paint from "@/models/Paint"
+import RedGreenBlue from "@/models/RedGreenBlue";
 
 export default {
     name: "ChooseColor",
@@ -97,24 +97,25 @@ export default {
                 const g = parseInt(hex.slice(3, 5), 16) / 255;
                 const b = parseInt(hex.slice(5, 7), 16) / 255;
 
-                colors.push(new Paint({r, g, b}, 1));
+                colors.push(new RedGreenBlue(r, g, b));
             });
 
             const base = this.$store.state.configuration.base.model;
 
-            colors.push(new Paint({
-                r: base.r / 255,
-                g: base.g / 255,
-                b: base.b / 255,
-            }, 1));
+            colors.push(
+                new RedGreenBlue(
+                    base.r / 255,
+                    base.g / 255,
+                    base.b / 255,
+                )
+            );
 
             try {
                 const response = await this.sleep(function () {
-                    return client.mix(colors);
+                    return client.mixColors(colors);
                 });
 
-                console.log(response.data.model);
-                const color = response.data.model;
+                const color = response.data;
 
                 this.loader = false;
                 this.mixSuccess = true;
@@ -131,7 +132,6 @@ export default {
                 this.mixResult = true;
                 this.mixSuccess = false;
             } catch (error) {
-                console.log('error', error);
                 this.loader = false;
                 this.mixSuccess = false;
                 this.mixFail = true;

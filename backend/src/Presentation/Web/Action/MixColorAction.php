@@ -18,7 +18,7 @@ final class MixColorAction extends AbstractController
         $memory = [];
 
         foreach ($body->getBody()['colors'] as $color) {
-            $memory[] = new Color($color['model']['r'], $color['model']['g'], $color['model']['b']);
+            $memory[] = new Color($color['r'], $color['g'], $color['b']);
         }
 
         $last = \array_pop($memory);

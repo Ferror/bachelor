@@ -181,11 +181,9 @@ final class Color implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'model' => [
-                'r' => $this->red,
-                'g' => $this->green,
-                'b' => $this->blue,
-            ],
+            'r' => $this->red,
+            'g' => $this->green,
+            'b' => $this->blue,
         ];
     }
 }
