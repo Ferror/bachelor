@@ -21,7 +21,7 @@ final class Volume
 
     public function createRatio(self $volume): float
     {
-        return 1.0;
+        return $this->value / $volume->value;
     }
 
     public function toFloat(): float
