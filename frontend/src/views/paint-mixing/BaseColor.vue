@@ -44,13 +44,17 @@ export default {
     background-color: #000000;
 }
 
-.base {
+.light-grey .base {
     background-color: #cccccc;
+}
+
+.base {
     display: flex;
     width: 78px;
     height: 78px;
     justify-content: center;
     align-items: center;
+    margin: 10px;
 }
 
 .base:hover {
@@ -68,6 +72,6 @@ export default {
     letter-spacing: 1px;
     margin-top: 5px;
     text-align: center;
-    width: 80px;
+    width: 100%;
 }
 </style>
