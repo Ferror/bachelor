@@ -63,7 +63,7 @@ final class ColorTest extends TestCase
         yield [
             new Color(0.6, 0.6, 0.6),
             new Color(0.3, 0.3, 0.3),
-            new Color(0.5, 0.5, 0.5),
+            new Color(0.45, 0.45, 0.45),
             'Grey + Dark Grey = Grey'
         ];
         yield [

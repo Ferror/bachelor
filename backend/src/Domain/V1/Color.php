@@ -6,6 +6,7 @@ namespace App\Domain\V1;
 use JsonSerializable;
 use function max;
 use function min;
+use function round;
 
 final class Color implements JsonSerializable
 {
@@ -24,32 +25,20 @@ final class Color implements JsonSerializable
             && $this->blue === $color->blue;
     }
 
-    public function isLightening(self $color): bool
+    public function isLightening(): bool
     {
         //RGB white is 255, 255, 255
-        return $color->red === $color->green
-            && $color->green === $color->blue
-            && $color->red >= 0.5;
+        return $this->red === $this->green
+            && $this->green === $this->blue
+            && $this->red >= 0.5;
     }
 
-    public function isDarkening(self $color): bool
+    public function isDarkening(): bool
     {
         //RGB white is 255, 255, 255
-        return $color->red === $color->green
-            && $color->green === $color->blue
-            && $color->red < 0.5;
-    }
-
-    /**
-     * Check whether the colors are soo
-     */
-    public function isGreyish(self $from, self $to): bool
-    {
-        return
-            $from->red === $from->green
-            && $from->green === $from->blue
-            && $to->red === $to->green
-            && $to->green === $to->blue;
+        return $this->red === $this->green
+            && $this->green === $this->blue
+            && $this->red < 0.5;
     }
 
     public function mix(self $color): self
@@ -69,23 +58,17 @@ final class Color implements JsonSerializable
 
         $n = max($r, $g, $b);
 
-        if ($this->isGreyish($color, $this)) {
+        if ($this->isDarkening() || $color->isDarkening()) {
             $mix = new self(
-                $r / 2 / $n,
-                $g / 2 / $n,
-                $b / 2 / $n,
+                $r / 2,
+                $g / 2,
+                $b / 2,
             );
-        } elseif ($this->isDarkening($color) || $this->isDarkening($this)) {
+        } elseif ($this->isLightening() || $color->isLightening()) {
             $mix = new self(
-                $r / $n,
-                $g / $n,
-                $b / $n,
-            );
-        } elseif ($this->isLightening($color) || $this->isLightening($this)) {
-            $mix = new self(
-                $r / 2 / $n,
-                $g / 2 / $n,
-                $b / 2 / $n,
+                $r / 2,
+                $g / 2,
+                $b / 2,
             );
         } else {
             $mix = new self(
@@ -175,7 +158,11 @@ final class Color implements JsonSerializable
         $g_rgb += $i_w;
         $b_rgb += $i_w;
 
-        return new self($r_rgb, $g_rgb, $b_rgb);
+        return new self(
+            round($r_rgb, 2, PHP_ROUND_HALF_UP),
+            round($g_rgb, 2, PHP_ROUND_HALF_UP),
+            round($b_rgb, 2, PHP_ROUND_HALF_UP),
+        );
     }
 
     public function jsonSerialize(): array
