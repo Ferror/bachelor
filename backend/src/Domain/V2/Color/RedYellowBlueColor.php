@@ -54,42 +54,28 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
             return $this;
         }
 
-        var_dump($ratio);
         //try normalization
         $r = $this->red + $mixable->red;
         $y = $this->yellow + $mixable->yellow;
         $b = $this->blue + $mixable->blue;
 
-//        if ($ratio === 1.0) {
-//            $r = $this->red + $mixable->red;
-//            $y = $this->yellow + $mixable->yellow;
-//            $b = $this->blue + $mixable->blue;
-//        } elseif ($ratio < 1.0) {
-//            $r = $this->red + ($ratio * $mixable->red);
-//            $y = $this->yellow + ($ratio * $mixable->yellow);
-//            $b = $this->blue + ($ratio * $mixable->blue);
-//        } else {
-//            $r = ($ratio * $this->red) + $mixable->red;
-//            $y = ($ratio * $this->yellow) + $mixable->yellow;
-//            $b = ($ratio * $this->blue) + $mixable->blue;
-//        }
+        $r *= $ratio;
+        $y *= $ratio;
+        $b *= $ratio;
 
         $n = max($r, $y, $b);
 
         if ($this->isDarkening() || $mixable->isDarkening() || $this->isLightening() || $mixable->isLightening()) {
-
-//            var_dump((($r) / (2)) / $ratio);
-//            var_dump((($r) / (2)) * $ratio);
             $mix = new self(
-                ((($r) / (2)) * $ratio) / $n,
-                ((($y) / (2)) * $ratio) / $n,
-                ((($b) / (2)) * $ratio) / $n,
+                (($r / 2)) / $n,
+                (($y / 2)) / $n,
+                (($b / 2)) / $n,
             );
         } else {
             $mix = new self(
-                $r / $n,
-                $y / $n,
-                $b / $n,
+                ($r) / $n,
+                ($y) / $n,
+                ($b) / $n,
             );
         }
 
