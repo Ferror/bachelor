@@ -5,4 +5,4 @@ ci:
 unit:
 	bin/phpunit --testsuite=unit
 coverage:
-	XDEBUG_MODE=coverage  bin/phpunit --coverage-html=var/coverage
+	XDEBUG_MODE=coverage bin/phpunit --testsuite=all --coverage-html=var/coverage

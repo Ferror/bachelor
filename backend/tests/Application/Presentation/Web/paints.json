@@ -100,6 +100,37 @@
                 },
                 "volume": 3.0
             }
+        },
+        {
+            "name": "White + 2x Black = Dark Grey",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 1.0
+                        },
+                        "volume": 1.0
+                    },
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 2.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 0.25,
+                    "g": 0.25,
+                    "b": 0.25
+                },
+                "volume": 3.0
+            }
         }
     ]
 }
