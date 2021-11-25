@@ -1,12 +1,9 @@
 <template>
     <MixingLoader v-if="loader" />
-
     <MixingSuccess v-if="mixSuccess" />
-    <MixingFail v-if="mixFail" />
+    <MixingFail v-if="mixFail" message="The backend service failed" />
 
-    <Result v-if="mixResult" :color="color" />
-
-    <div style="width: 100%;" v-if="loader === false && mixSuccess === false && mixFail === false && mixResult === false">
+    <div style="width: 100%;" v-if="loader === false && mixSuccess === false && mixFail === false">
         <div class="choose-color">
             <BaseColor
                 :class-name="base.name"
@@ -16,15 +13,17 @@
 
             <Plus />
 
-            <ColorPicker :removable="false" />
+            <div>
+                <ColorPicker />
+                <div style="height: 20px;"></div>
+            </div>
 
-            <Plus v-if="activeSecondColor" />
+            <Plus v-if="activeSecondColor && visible" />
 
-            <ColorPicker v-if="activeSecondColor" :removable="true" />
-
-            <Plus v-if="activeThirdColor" />
-
-            <ColorPicker v-if="activeThirdColor" :removable="true" />
+            <div v-if="activeSecondColor && visible" style="display: flex;flex-direction: column;">
+                <ColorPicker />
+                <Button v-if="true" label="Remove" class="p-button-sm p-button-text" style="height: 20px;" @click="removeColorPicker()" />
+            </div>
         </div>
 
         <div style="margin-top: 30px;display: flex;justify-content: space-evenly;">
@@ -42,13 +41,11 @@ import MixingLoader from "./MixingLoader";
 import MixingSuccess from "./MixingSuccess";
 import Plus from "./Plus";
 import client from "@/clients/PaintMixerClient";
-import Result from "./Result";
 import RedGreenBlue from "@/models/RedGreenBlue";
 
 export default {
     name: "ChooseColor",
     components: {
-        Result,
         MixingSuccess,
         MixingLoader,
         MixingFail,
@@ -60,31 +57,26 @@ export default {
         return {
             base: this.$store.state.configuration.base,
             activeSecondColor: false,
-            activeThirdColor: false,
             loader: false,
             mixSuccess: false,
             mixFail: false,
-            mixResult: false,
-            color: null,
+            visible: true,
         };
     },
     methods: {
+        removeColorPicker: function () {
+            this.visible = false;
+            this.activeSecondColor = false;
+            document.getElementById("add-color-button").style.display = 'block';
+        },
         addColorPicker: function () {
-            if (this.activeThirdColor) {
-                document.getElementById("add-color-button").style.display = 'none';
-                // do nothing
-                return;
-            }
-
             if (this.activeSecondColor) {
-                //add third
-                this.activeThirdColor = true;
-                document.getElementById("add-color-button").style.display = 'none';
-
                 return;
             }
 
+            this.visible = true;
             this.activeSecondColor = true;
+            document.getElementById("add-color-button").style.display = 'none';
         },
         mixColors: async function () {
             this.loader = true;
@@ -115,22 +107,23 @@ export default {
                     return client.mixColors(colors);
                 });
 
-                const color = response.data;
+                let color = response.data;
 
                 this.loader = false;
                 this.mixSuccess = true;
                 this.mixFail = false;
 
-                this.color = await this.sleep(function () {
+                color = await this.sleep(function () {
                     return {
-                        r: color.r * 255,
-                        g: color.g * 255,
-                        b: color.b * 255,
+                        r: Math.floor(color.r * 255),
+                        g: Math.floor(color.g * 255),
+                        b: Math.floor(color.b * 255),
                     };
                 })
 
-                this.mixResult = true;
                 this.mixSuccess = false;
+                this.$store.commit('PaintMixingNextStep', 2);
+                this.$store.commit('PaintMixingPresentResult', color);
             } catch (error) {
                 this.loader = false;
                 this.mixSuccess = false;

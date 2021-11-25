@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Modal from "./paint-mixing/Modal";
+import Modal from "@/views/paint-mixing/Modal";
 
 export default {
     name: "PaintMixing",

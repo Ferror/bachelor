@@ -23,9 +23,10 @@
                     </div>
                 </div>
 
-                <div class="modal-content">
+                <div class="modal-content" style="position: relative;">
                     <ChooseBase v-if="currentStep.name === 'choose-base'" />
                     <ChooseColor v-if="currentStep.name === 'choose-color'" />
+                    <Result v-if="currentStep.name === 'present-result'" />
                 </div>
             </div>
         </div>
@@ -35,10 +36,12 @@
 <script>
 import ChooseBase from "./ChooseBase";
 import ChooseColor from "./ChooseColor";
+import Result from "./Result";
 
 export default {
     name: "Modal",
     components: {
+        Result,
         ChooseBase,
         ChooseColor,
     },
@@ -89,6 +92,7 @@ export default {
 .modal-title {
     display: flex;
     height: 75px;
+    margin-left: 10px;
 }
 
 .modal-content {

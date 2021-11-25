@@ -9,6 +9,10 @@ const steps = [
         title: "Choose first color",
         name: "choose-color"
     },
+    {
+        title: "Your mixed color",
+        name: "present-result"
+    },
 ];
 
 const bases = [
@@ -27,9 +31,9 @@ const bases = [
         caption: "Light Grey",
         lock: "lock-black",
         model: {
-            r: 255,
-            g: 255,
-            b: 255,
+            r: 204,
+            g: 204,
+            b: 204,
         },
     },
     {
@@ -37,9 +41,9 @@ const bases = [
         caption: "Grey",
         lock: "lock-white",
         model: {
-            r: 255,
-            g: 255,
-            b: 255,
+            r: 136,
+            g: 136,
+            b: 136,
         },
     },
     {
@@ -47,9 +51,9 @@ const bases = [
         caption: "Dark Grey",
         lock: "lock-white",
         model: {
-            r: 255,
-            g: 255,
-            b: 255,
+            r: 68,
+            g: 68,
+            b: 68,
         },
     },
     {
@@ -57,9 +61,9 @@ const bases = [
         caption: "Black",
         lock: "lock-white",
         model: {
-            r: 255,
-            g: 255,
-            b: 255,
+            r: 0,
+            g: 0,
+            b: 0,
         },
     },
 ];
@@ -75,6 +79,7 @@ export default createStore({
             base: null,
             colors: [],
         },
+        result: null,
     },
     getters: {
         GetCurrentStep: function (state) {
@@ -82,7 +87,7 @@ export default createStore({
         },
         GetAvailableBases: function (state) {
             return state.bases;
-        }
+        },
     },
     mutations: {
         PaintMixingNextStep: (state, step) => {
@@ -104,6 +109,11 @@ export default createStore({
             console.log('PaintMixingAddBase');
 
             state.configuration.base = state.bases.filter(base => base.name === BaseName).pop();
+        },
+        PaintMixingPresentResult: (state, result) => {
+            console.log('PaintMixingPresentResult');
+
+            state.result = result;
         },
     },
     actions: {
