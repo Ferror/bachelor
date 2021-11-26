@@ -44,7 +44,7 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
             && $this->red < 0.5;
     }
 
-    public function mix(Mixable $mixable, float $ratio): Mixable
+    public function mix(Mixable $mixable, float $volumeFirst, float $volumeSecond): Mixable
     {
         if (!$mixable instanceof RedYellowBlueColor) {
             throw new \InvalidArgumentException('You can mix only RYB together');
@@ -54,32 +54,17 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
             return $this;
         }
 
-        //try normalization
-        $r = $this->red + $mixable->red;
-        $y = $this->yellow + $mixable->yellow;
-        $b = $this->blue + $mixable->blue;
-
-        $r *= $ratio;
-        $y *= $ratio;
-        $b *= $ratio;
-
-        $n = max($r, $y, $b);
-
-        if ($this->isDarkening() || $mixable->isDarkening() || $this->isLightening() || $mixable->isLightening()) {
-            $mix = new self(
-                (($r / 2)) / $n,
-                (($y / 2)) / $n,
-                (($b / 2)) / $n,
-            );
+        if ($volumeFirst === $volumeSecond) {
+            $r = $this->red + $mixable->red;
+            $y = $this->yellow + $mixable->yellow;
+            $b = $this->blue + $mixable->blue;
         } else {
-            $mix = new self(
-                ($r) / $n,
-                ($y) / $n,
-                ($b) / $n,
-            );
+            $r = (($this->red * $volumeFirst) + ($mixable->red * $volumeSecond)) / ($this->red + $mixable->red + $volumeFirst + $volumeSecond);
+            $y = (($this->yellow * $volumeFirst) + ($mixable->yellow * $volumeSecond)) / ($this->yellow + $mixable->yellow + $volumeFirst + $volumeSecond);
+            $b = (($this->blue * $volumeFirst) + ($mixable->blue * $volumeSecond)) / ($this->blue + $mixable->blue + $volumeFirst + $volumeSecond);
         }
 
-        return $mix;
+        return new self($r, $y, $b);
     }
 
     public function createPrintable(): RedGreenBlueColor

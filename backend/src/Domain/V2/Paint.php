@@ -22,7 +22,8 @@ final class Paint
         return new self(
             $this->color->mix(
                 $paint->color,
-                $this->volume->createRatio($paint->volume)
+                $this->volume->toFloat(),
+                $paint->volume->toFloat(),
             ),
             $this->volume->add($paint->volume),
         );
