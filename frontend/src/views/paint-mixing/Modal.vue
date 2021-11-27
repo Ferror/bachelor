@@ -84,6 +84,10 @@ export default {
     align-items: center;
 }
 
+.title-2 {
+    letter-spacing: 2px;
+}
+
 .symbol-x {
     height: 25px;
     width: 25px;

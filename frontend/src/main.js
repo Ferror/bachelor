@@ -13,13 +13,15 @@ import 'primeicons/primeicons.css';
 
 const app = createApp(App);
 
-import Button from 'primevue/button'
+import Button from 'primevue/button';
+import InputNumber from 'primevue/inputnumber';
 
-app.use(locale)
-app.use(router)
-app.use(store)
-app.use(PrimeVue)
+app.use(locale);
+app.use(router);
+app.use(store);
+app.use(PrimeVue);
 
-app.component('Button', Button)
+app.component('Button', Button);
+app.component('InputNumber', InputNumber)
 
-app.mount('#app')
+app.mount('#app');

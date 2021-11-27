@@ -50,8 +50,8 @@ export default {
 
 .base {
     display: flex;
-    width: 78px;
-    height: 78px;
+    width: 80px;
+    height: 80px;
     justify-content: center;
     align-items: center;
     margin: 10px;
@@ -68,9 +68,8 @@ export default {
 }
 
 .caption {
-    height: 15px;
+    height: 20px;
     letter-spacing: 1px;
-    margin-top: 5px;
     text-align: center;
     width: 100%;
 }
