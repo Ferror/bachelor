@@ -19,7 +19,7 @@ const bases = [
     {
         name: "white",
         caption: "White",
-        lock: "",
+        lock: "lock-black",
         model: {
             r: 255,
             g: 255,

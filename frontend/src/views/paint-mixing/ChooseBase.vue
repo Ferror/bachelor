@@ -4,7 +4,6 @@
             v-for="base in this.$store.getters.GetAvailableBases"
             :key="base.name"
             :class-name="base.name"
-            :lock="base.lock"
             :caption="base.caption"
             @click="addBase(base.name)"
         />

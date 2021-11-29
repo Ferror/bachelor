@@ -9,7 +9,6 @@
                 <InputNumber v-model="baseColorValue" suffix=" ml" inputStyle="width: 80px; font-size: 12px;" />
                 <BaseColor
                     :class-name="base.name"
-                    :lock="base.lock"
                     :caption="base.caption"
                 />
             </div>
