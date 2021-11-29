@@ -24,4 +24,8 @@ app.use(PrimeVue);
 app.component('Button', Button);
 app.component('InputNumber', InputNumber)
 
+if (process.env.NODE_ENV === 'production' && window.location.protocol !== "https:") {
+    window.location.protocol = "https";
+}
+
 app.mount('#app');
