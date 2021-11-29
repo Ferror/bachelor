@@ -58,13 +58,7 @@ final class Color implements JsonSerializable
 
         $n = max($r, $g, $b);
 
-        if ($this->isDarkening() || $color->isDarkening()) {
-            $mix = new self(
-                $r / 2,
-                $g / 2,
-                $b / 2,
-            );
-        } elseif ($this->isLightening() || $color->isLightening()) {
+        if ($this->isDarkening() || $color->isDarkening() || $this->isLightening() || $color->isLightening()) {
             $mix = new self(
                 $r / 2,
                 $g / 2,

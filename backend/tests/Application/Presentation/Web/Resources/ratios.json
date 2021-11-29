@@ -1,7 +1,7 @@
 {
     "tests": [
         {
-            "name": "Blue + Yellow = Green",
+            "name": "200ml White + 100ml Black = Light grey",
             "request": {
                 "paints": [
                     {
@@ -10,95 +10,87 @@
                             "g": 1.0,
                             "b": 1.0
                         },
-                        "volume": 1
-                    },
-                    {
-                        "model": {
-                            "r": 1.0,
-                            "g": 1.0,
-                            "b": 1.0
-                        },
-                        "volume": 1
-                    }
-                ]
-            },
-            "response": {
-                "model": {
-                    "r": 1.0,
-                    "g": 1.0,
-                    "b": 1.0
-                },
-                "volume": 2
-            }
-        },
-        {
-            "name": "Red + Yellow = Orange",
-            "request": {
-                "paints": [
-                    {
-                        "model": {
-                            "r": 1.0,
-                            "g": 0,
-                            "b": 0
-                        },
-                        "volume": 1
-                    },
-                    {
-                        "model": {
-                            "r": 1.0,
-                            "g": 1.0,
-                            "b": 0
-                        },
-                        "volume": 1
-                    }
-                ]
-            },
-            "response": {
-                "model": {
-                    "r": 1.0,
-                    "g": 0.5,
-                    "b": 0
-                },
-                "volume": 2
-            }
-        },
-        {
-            "name": "Red + Green + Blue = Black-ish",
-            "request": {
-                "paints": [
-                    {
-                        "model": {
-                            "r": 1.0,
-                            "g": 0.0,
-                            "b": 0.0
-                        },
-                        "volume": 1
-                    },
-                    {
-                        "model": {
-                            "r": 0.0,
-                            "g": 1.0,
-                            "b": 0.0
-                        },
-                        "volume": 1.0
+                        "volume": 200.0
                     },
                     {
                         "model": {
                             "r": 0.0,
                             "g": 0.0,
-                            "b": 1.0
+                            "b": 0.0
                         },
-                        "volume": 1.0
+                        "volume": 100.0
                     }
                 ]
             },
             "response": {
                 "model": {
-                    "r": 0.0,
-                    "g": 0.0,
-                    "b": 0.5
+                    "r": 0.67,
+                    "g": 0.67,
+                    "b": 0.67
                 },
-                "volume": 3.0
+                "volume": 300.0
+            }
+        },
+        {
+            "name": "100ml Black + 200ml White = Light grey",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 100.0
+                    },
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 1.0
+                        },
+                        "volume": 200.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 0.67,
+                    "g": 0.67,
+                    "b": 0.67
+                },
+                "volume": 300.0
+            }
+        },
+        {
+            "name": "200ml Black + 100ml White = Dark grey",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 200.0
+                    },
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 1.0
+                        },
+                        "volume": 100.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 0.34,
+                    "g": 0.34,
+                    "b": 0.34
+                },
+                "volume": 300.0
             }
         }
     ]

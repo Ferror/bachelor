@@ -24,6 +24,9 @@ final class MixPaintColorAction extends AbstractController
     #[Route(path: '/paints', name: 'PAINTS', methods: ['GET', 'POST'])]
     public function __invoke(RequestBody $body): Response
     {
+        /**
+         * @var \App\Domain\V2\Paint[] $memory
+         */
         $memory = [];
 
         foreach ($body->getBody()['paints'] as $paint) {

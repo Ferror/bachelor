@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace App\Domain\V2\Color;
 
+use App\Domain\V2\Color\Exception\ColorModelException;
 use App\Domain\V2\Converter;
 use App\Domain\V2\Mixable;
-use InvalidArgumentException;
 
 final class RedGreenBlueColor
 {
@@ -16,7 +16,7 @@ final class RedGreenBlueColor
     )
     {
         if (!Validator::isWithinRange($red, $green, $blue)) {
-            throw new InvalidArgumentException('RGB value out of the range');
+            throw ColorModelException::createInvalidValues('RGB', $red, $green, $blue);
         }
     }
 

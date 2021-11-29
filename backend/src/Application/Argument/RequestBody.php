@@ -20,7 +20,7 @@ final class RequestBody
         $result = json_decode($this->body, true, 512, JSON_THROW_ON_ERROR);
 
         if ($result === null) {
-            throw new \InvalidArgumentException();
+            throw new \InvalidArgumentException('Request body must be not empty json');
         }
 
         return $result;

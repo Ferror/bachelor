@@ -28,7 +28,7 @@ final class MixColorActionTest extends WebTestCase
 
     public function colors(): Generator
     {
-        $file = \json_decode(\file_get_contents(__DIR__ . '/colors.json'), true, 512, JSON_THROW_ON_ERROR);
+        $file = \json_decode(\file_get_contents(__DIR__ . '/Resources/colors.json'), true, 512, JSON_THROW_ON_ERROR);
 
         foreach ($file['tests'] as $test) {
             yield [

@@ -45,6 +45,10 @@ final class Converter
         $y_ryb += $i_b;
         $b_ryb += $i_b;
 
+        $r_ryb = round($r_ryb, 2, PHP_ROUND_HALF_UP);
+        $y_ryb = round($y_ryb, 2, PHP_ROUND_HALF_UP);
+        $b_ryb = round($b_ryb, 2, PHP_ROUND_HALF_UP);
+
         return new RedYellowBlueColor($r_ryb, $y_ryb, $b_ryb);
     }
 
@@ -84,6 +88,10 @@ final class Converter
         $r_rgb += $i_w;
         $g_rgb += $i_w;
         $b_rgb += $i_w;
+
+        $r_rgb = round($r_rgb, 2, PHP_ROUND_HALF_UP);
+        $g_rgb = round($g_rgb, 2, PHP_ROUND_HALF_UP);
+        $b_rgb = round($b_rgb, 2, PHP_ROUND_HALF_UP);
 
         return new RedGreenBlueColor($r_rgb, $g_rgb, $b_rgb);
     }
