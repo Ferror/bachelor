@@ -19,19 +19,6 @@ final class Volume
         return new self($this->value + $volume->value);
     }
 
-    public function createRatio(self $volume): float
-    {
-        if ($this->value === $volume->value) {
-            return 1.0;
-        }
-
-        if ($this->value > $volume->value) {
-            return ($this->value + $volume->value) / ($this->value);
-        }
-
-        return ($this->value + $volume->value) / ($volume->value);
-    }
-
     public function toFloat(): float
     {
         return $this->value;
