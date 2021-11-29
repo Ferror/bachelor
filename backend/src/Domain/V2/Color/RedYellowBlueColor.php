@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Domain\V2\Color;
 
+use App\Domain\V2\Color\Exception\ColorModelException;
 use App\Domain\V2\Converter;
 use App\Domain\V2\Mixable;
 use JsonSerializable;
@@ -16,7 +17,7 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
     )
     {
         if (!Validator::isWithinRange($red, $yellow, $blue)) {
-            throw new \InvalidArgumentException();
+            throw ColorModelException::createInvalidValues('RYB', $red, $yellow, $blue);
         }
     }
 
@@ -27,7 +28,23 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
             && $this->blue === $color->blue;
     }
 
-    public function mix(Mixable $mixable, float $ratio): Mixable
+    public function isLightening(): bool
+    {
+        //RGB white is 255, 255, 255
+        return $this->red === $this->yellow
+            && $this->yellow === $this->blue
+            && $this->red >= 0.5;
+    }
+
+    public function isDarkening(): bool
+    {
+        //RGB white is 255, 255, 255
+        return $this->red === $this->yellow
+            && $this->yellow === $this->blue
+            && $this->red < 0.5;
+    }
+
+    public function mix(Mixable $mixable, float $volumeFirst, float $volumeSecond): Mixable
     {
         if (!$mixable instanceof RedYellowBlueColor) {
             throw new \InvalidArgumentException('You can mix only RYB together');
@@ -37,18 +54,17 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
             return $this;
         }
 
-        //try normalization
-        $r = $this->red + $mixable->red;
-        $y = $this->yellow + $mixable->yellow;
-        $b = $this->blue + $mixable->blue;
+        if ($volumeFirst === $volumeSecond) {
+            $r = $this->red + $mixable->red;
+            $y = $this->yellow + $mixable->yellow;
+            $b = $this->blue + $mixable->blue;
+        } else {
+            $r = (($this->red * $volumeFirst) + ($mixable->red * $volumeSecond)) / ($this->red + $mixable->red + $volumeFirst + $volumeSecond);
+            $y = (($this->yellow * $volumeFirst) + ($mixable->yellow * $volumeSecond)) / ($this->yellow + $mixable->yellow + $volumeFirst + $volumeSecond);
+            $b = (($this->blue * $volumeFirst) + ($mixable->blue * $volumeSecond)) / ($this->blue + $mixable->blue + $volumeFirst + $volumeSecond);
+        }
 
-        $n = max($r, $y, $b);
-
-        return new self(
-            $r / $n,
-            $y / $n,
-            $b / $n,
-        );
+        return new self($r, $y, $b);
     }
 
     public function createPrintable(): RedGreenBlueColor

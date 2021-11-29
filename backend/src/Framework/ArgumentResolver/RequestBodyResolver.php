@@ -19,6 +19,7 @@ final class RequestBodyResolver implements ArgumentValueResolverInterface
 
     public function resolve(Request $request, ArgumentMetadata $argument): Generator
     {
+        //@phpstan-ignore-next-line
         yield new RequestBody($request->getContent(false));
     }
 }

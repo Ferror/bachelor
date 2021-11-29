@@ -1,0 +1,198 @@
+{
+    "tests": [
+        {
+            "name": "Blue + Yellow = Green",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 1.0
+                        },
+                        "volume": 1.0
+                    },
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 1.0
+                        },
+                        "volume": 1.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0
+                },
+                "volume": 2.0
+            }
+        },
+        {
+            "name": "Red + Yellow = Orange",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 1.0
+                    },
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 0.0
+                        },
+                        "volume": 1.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 1.0,
+                    "g": 0.5,
+                    "b": 0.0
+                },
+                "volume": 2.0
+            }
+        },
+        {
+            "name": "Black + Black = Black",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 1.0
+                    },
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 1.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 0.0,
+                    "g": 0.0,
+                    "b": 0.0
+                },
+                "volume": 2.0
+            }
+        },
+        {
+            "name": "Red + Blue = Purple",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 1.0
+                    },
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 0.0,
+                            "b": 1.0
+                        },
+                        "volume": 1.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 0.5,
+                    "g": 0.0,
+                    "b": 1.0
+                },
+                "volume": 2.0
+            }
+        },
+        {
+            "name": "Red + Green + Blue = Black-ish",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 1.0
+                    },
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 1.0,
+                            "b": 0.0
+                        },
+                        "volume": 1.0
+                    },
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 0.0,
+                            "b": 1.0
+                        },
+                        "volume": 1.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 0.53,
+                    "g": 0.4,
+                    "b": 0.75
+                },
+                "volume": 3.0
+            }
+        },
+        {
+            "name": "White + 2x Black = Dark Grey",
+            "request": {
+                "paints": [
+                    {
+                        "model": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 1.0
+                        },
+                        "volume": 1.0
+                    },
+                    {
+                        "model": {
+                            "r": 0.0,
+                            "g": 0.0,
+                            "b": 0.0
+                        },
+                        "volume": 2.0
+                    }
+                ]
+            },
+            "response": {
+                "model": {
+                    "r": 0.5,
+                    "g": 0.5,
+                    "b": 0.5
+                },
+                "volume": 3.0
+            }
+        }
+    ]
+}

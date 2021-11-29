@@ -20,7 +20,11 @@ final class Paint
     public function mix(self $paint): self
     {
         return new self(
-            $this->color->mix($paint->color, $this->volume->createRatio($paint->volume)),
+            $this->color->mix(
+                $paint->color,
+                $this->volume->toFloat(),
+                $paint->volume->toFloat(),
+            ),
             $this->volume->add($paint->volume),
         );
     }
