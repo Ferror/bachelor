@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="overlap-group">
             <div class="flex-col-1">
-                <div class="paint-shop-inc valign-text-middle roboto-normal-white-24px-2 t-2">
+                <div class="paint-shop-inc valign-text-middle roboto-normal-white-24px t-2">
                     PAINT SHOP INC.
                 </div>
                 <div class="flex-row roboto-normal-white-18px">

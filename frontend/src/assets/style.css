@@ -33,8 +33,6 @@
             rgba(248, 248, 248, 1);
     --banana:
             rgba(249, 202, 36, 1);
-    --white-2:
-            rgba(255, 255, 255, 0.8);
     --white:
             rgba(255, 255, 255, 1);
 
@@ -62,7 +60,7 @@
 }
 
 .roboto-normal-white-18px {
-    color: var(--white-2);
+    color: var(--white);
     font-family: var(--font-family-roboto);
     font-size: var(--font-size-xxl);
     font-weight: 400;
@@ -70,7 +68,7 @@
 }
 
 .roboto-normal-white-16px {
-    color: var(--white-2);
+    color: var(--white);
     font-family: var(--font-family-roboto);
     font-size: var(--font-size-xl);
     font-weight: 400;
@@ -108,17 +106,9 @@
 }
 
 .roboto-normal-white-14px {
-    color: var(--white-2);
+    color: var(--white);
     font-family: var(--font-family-roboto);
     font-size: var(--font-size-l);
-    font-weight: 400;
-    font-style: normal;
-}
-
-.roboto-normal-white-24px-2 {
-    color: var(--white-2);
-    font-family: var(--font-family-roboto);
-    font-size: var(--font-size-xxxxl);
     font-weight: 400;
     font-style: normal;
 }
@@ -140,7 +130,7 @@
 }
 
 .roboto-normal-white-12px {
-    color: var(--white-2);
+    color: var(--white);
     font-family: var(--font-family-roboto);
     font-size: var(--font-size-m);
     font-weight: 400;
