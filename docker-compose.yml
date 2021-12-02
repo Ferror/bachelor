@@ -1,0 +1,53 @@
+services:
+    traefik:
+        image: traefik:2.3
+        command:
+            - "--log.level=DEBUG"
+            - "--api.insecure=true"
+            - "--providers.docker=true"
+            - "--providers.docker.exposedbydefault=false"
+            - "--entrypoints.web.address=:80"
+        ports:
+            - "80:80"
+            - "8080:8080"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        networks:
+            ferror:
+                ipv4_address: 192.168.10.2
+
+    symfony:
+        image: ferror/symfony-image:8.0
+        command: ["make", "run"]
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.symfony.rule=Host(`backend.malcherczyk.local`)"
+        volumes:
+            - ./backend/:/app:delegated
+        depends_on:
+            - traefik
+        networks:
+            - ferror
+
+    vue:
+        image: ferror/vue-image:14
+        command: ["make", "run"]
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.vue.rule=Host(`frontend.malcherczyk.local`)"
+        volumes:
+            - ./frontend/:/app:delegated
+            - /app/node_modules
+        depends_on:
+            - traefik
+        networks:
+            - ferror
+
+networks:
+    ferror:
+        name: ferror
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.10.0/24
