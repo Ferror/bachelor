@@ -7,3 +7,10 @@ jobs:
                 - cd backend
                 - composer install
                 - make ci
+
+        -   language: node_js
+            node_js: 14
+            script:
+                - cd frontend
+                - yarn install
+                - make ci
