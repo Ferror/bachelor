@@ -40,6 +40,10 @@ final class MixPaintColorAction extends AbstractController
             );
         }
 
+        if (empty($memory)) {
+            return new JsonResponse(['error' => ['message' => 'Could not create any paint model']], 400);
+        }
+
         $last = \array_pop($memory);
 
         foreach ($memory as $color) {
