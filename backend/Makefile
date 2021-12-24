@@ -5,7 +5,7 @@ run:
 ci:
 	composer validate
 	bin/phpunit --testsuite=all
-	#vendor/bin/phpstan analyse -c phpstan.neon
+	vendor/bin/phpstan analyse -c phpstan.neon
 unit:
 	bin/phpunit --testsuite=unit
 coverage:

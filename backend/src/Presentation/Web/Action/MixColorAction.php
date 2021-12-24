@@ -12,13 +12,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class MixColorAction extends AbstractController
 {
-    #[Route(path: '/colors', name: 'COLORS_GET', methods: ['GET', 'POST'])]
+    #[Route(path: '/colors', name: 'COLORS', methods: ['GET', 'POST'])]
     public function __invoke(RequestBody $body): Response
     {
         $memory = [];
 
         foreach ($body->getBody()['colors'] as $color) {
             $memory[] = new Color($color['r'], $color['g'], $color['b']);
+        }
+
+        if (empty($memory)) {
+            return new JsonResponse(['error' => ['message' => 'Could not create any paint model']], 400);
         }
 
         $last = \array_pop($memory);
