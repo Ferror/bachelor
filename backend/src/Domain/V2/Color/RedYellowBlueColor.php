@@ -61,9 +61,11 @@ final class RedYellowBlueColor implements Mixable, JsonSerializable
 
             $n = max($r, $y, $b);
 
-            $r /= $n;
-            $y /= $n;
-            $b /= $n;
+            if ($n > 1) {
+                $r /= $n;
+                $y /= $n;
+                $b /= $n;
+            }
         } else {
             $r = (($this->red * $volumeFirst) + ($mixable->red * $volumeSecond)) / ($this->red + $mixable->red + $volumeFirst + $volumeSecond);
             $y = (($this->yellow * $volumeFirst) + ($mixable->yellow * $volumeSecond)) / ($this->yellow + $mixable->yellow + $volumeFirst + $volumeSecond);
