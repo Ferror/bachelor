@@ -21,7 +21,7 @@ services:
         command: ["make", "run"]
         labels:
             - "traefik.enable=true"
-            - "traefik.http.routers.symfony.rule=Host(`backend.malcherczyk.local`)"
+            - "traefik.http.routers.symfony.rule=Host(`backend.malcherczyk.localhost`)"
         volumes:
             - ./backend/:/app:delegated
         depends_on:
@@ -32,9 +32,10 @@ services:
     vue:
         image: ferror/vue-image:14
         command: ["make", "run"]
+        env_file: frontend/.env.dev
         labels:
             - "traefik.enable=true"
-            - "traefik.http.routers.vue.rule=Host(`frontend.malcherczyk.local`)"
+            - "traefik.http.routers.vue.rule=Host(`frontend.malcherczyk.localhost`)"
         volumes:
             - ./frontend/:/app:delegated
             - /app/node_modules
