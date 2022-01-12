@@ -9,15 +9,15 @@ export default {
     landing: {
         hero: {
             title: "Paint your world!",
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu, adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci vitae.",
+            content: "The application will allow you to predict the mixing of several colors in the way that paints mix. Forget that when you mix blue and yellow, you get gray. Go to the app and ...",
         },
         shareSection: {
             title: "Share your paint ideas",
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu, adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci vitae. Purus tellus arcu sem quam suspendisse. Nisi adipiscing interdum vestibulum, tellus non urna. Ornare vitae hendrerit a est massa neque sem rhoncus, scelerisque.",
+            content: "The accessible process allows you to create predictions multiple times, which will allow you to discover completely new shades of color. Share your inspiration with your friends on social media with #creativity and # paint-mixing",
         },
         paintSection: {
-            title: "Your paint mix result",
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu nibh aliquet gravida at mauris ut id commodo. Eu, adipiscing sit et venenatis vitae in pellentesque. Id elementum quam tellus porttitor neque, arcu porta orci vitae. Purus tellus arcu sem quam suspendisse. Nisi adipiscing interdum vestibulum, tellus non urna. Ornare vitae hendrerit a est massa neque sem rhoncus, scelerisque.",
+            title: "See your paint mix result",
+            content: "By creating paint color mixing prediction, you will get the result as a mix of colors in the RGB model. Thanks to this, you will not only learn the components of color, but also you can use color when creating graphic elements.",
         }
     }
 }
