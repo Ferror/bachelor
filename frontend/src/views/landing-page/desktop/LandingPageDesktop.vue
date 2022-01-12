@@ -66,7 +66,7 @@ export default {
 
 .group-39 {
     display: flex;
-    height: 400px;
+    height: 360px;
     width: 480px;
 }
 

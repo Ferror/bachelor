@@ -22,7 +22,7 @@ export default {
 <style scoped>
 .group-42 {
     display: flex;
-    height: 400px;
+    height: 360px;
     position: relative;
     width: 480px;
 }
